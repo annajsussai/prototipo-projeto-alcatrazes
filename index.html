@@ -13,6 +13,7 @@ nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:10;di
 .hero h1{font-size:clamp(42px,7vw,92px);line-height:1.02;margin:0 0 18px;max-width:900px}
 .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px}.hero .eyebrow{color:#ffd0bf}
 .hero p{margin:0 0 32px;font-size:18px;opacity:.92;max-width:620px}
+.jump{display:flex;flex-wrap:wrap;gap:6px 34px;margin-top:36px;padding-top:18px;border-top:1px solid #ffffff55;max-width:520px}.jump a{color:#fff;text-decoration:none;font:500 17px Fraunces,serif;padding-bottom:4px;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}.jump a::after{content:" →";display:inline-block;transition:transform .2s}.jump a:hover{border-color:#ffb599;color:#ffd0bf}.jump a:hover::after{transform:translateX(4px)}
 .btn{display:inline-block;padding:14px 30px;background:var(--accent);color:#fff;text-decoration:none;font-weight:500;font-size:15px;border-radius:2px;margin:0 10px 10px 0}.btn.o{background:transparent;border:1px solid #fff9}.btn:hover{filter:brightness(1.1)}
 section{padding:110px 0}
 .sec{display:grid;grid-template-columns:200px 1fr;gap:40px}.sec>.eyebrow{margin-top:12px}
@@ -39,16 +40,37 @@ h2{font-size:clamp(30px,4vw,48px);line-height:1.15;margin:0 0 28px}
 .quote{margin:48px 0 0;font:italic 400 24px/1.45 Fraunces,serif;color:#cfe4ea;max-width:760px}.quote small{display:block;font:400 14px Inter,sans-serif;color:#8fd0d9;margin-top:8px}
 .book .cols{display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:start}
 .book p{margin:0 0 18px}.book .s{font:400 20px/1.65 Fraunces,serif}
-.ev{background:var(--navy);color:#fff;padding:40px;border-radius:2px}
-.ev h3{font-size:30px;margin:0 0 18px;color:#fff}.ev h4{margin:20px 0 4px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ffb599;font-family:Inter,sans-serif;font-weight:600}.ev p{margin:0;font-size:18px}.ev .btn{margin-top:30px}
+.film{background:#06141f;color:#fff;padding:110px 0}.film h2{color:#fff}.film .eyebrow{color:#ffb599}.film .lead{color:#b4c6d2}
+.player{position:relative;aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden;box-shadow:0 30px 80px #000a,0 0 0 1px #ffffff1f}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.alt{margin:18px 0 0;font-size:14px;color:#8fa6b5}.alt a{color:#8fd0d9;text-underline-offset:4px}
+.book .cols{display:block;margin:0 0 48px;max-width:860px;text-align:left}.book .cols .s{max-width:820px}
+.facts b{display:block;font:600 28px Fraunces,serif}.facts span{font-size:13px;color:var(--mute)}
+.reader{background:radial-gradient(ellipse at 50% 30%,#12384f 0%,#0a2233 60%,#071a29 100%);border-radius:6px;padding:48px 4vw 28px;color:#fff;box-shadow:0 24px 70px #0b2a3d55}
+.reader:fullscreen{border-radius:0;display:flex;flex-direction:column;justify-content:center}
+.flipwrap{width:100%;margin:0 auto;min-height:320px;display:flex;justify-content:center}
+#flip{width:min(100%,calc(2*(80vh - 90px)/var(--r,.9)));max-width:100%;margin:0 auto}
+@media(max-width:700px){#flip{width:min(100%,calc((80vh - 90px)/var(--r,.9)))}}
+#flip{filter:drop-shadow(0 18px 30px #0009)}
+.pg{background:#fff;overflow:hidden}.pg canvas{width:100%;height:100%;display:block}
+.pg.hard{background:#0b2a3d}
+.ctrl{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:30px;flex-wrap:wrap}
+.ctrl button,.ctrl a{font:500 14px Inter,sans-serif;color:#fff;background:#ffffff14;border:1px solid #ffffff40;padding:10px 20px;border-radius:30px;cursor:pointer;text-decoration:none}
+.ctrl button:hover,.ctrl a:hover{background:#ffffff26}
+.ctrl .cnt{min-width:84px;text-align:center;font-size:14px;color:#b4c6d2}
+.loadmsg{align-self:center;color:#b4c6d2;font-size:15px}
+.bookfb .player{aspect-ratio:1.18/1;height:auto;max-height:80vh;margin:0 auto;width:min(100%,calc(80vh*1.18))}
+.bookfb .player iframe{inset:auto;left:-7%;top:-5%;width:114%;height:118%}
+.hint{text-align:center;margin:18px 0 0;font-size:13px;color:#8fa6b5}
+@media(max-width:860px){.film{padding:76px 0}.reader{padding:28px 3vw 20px}}
 footer{background:#071a29;color:#9db0be;padding:44px 6vw;font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}footer b{font:600 20px Fraunces,serif;color:#fff}
 @media(max-width:860px){section{padding:76px 0}.sec,.about .cols,.book .cols,.lines,.tools{grid-template-columns:1fr}.sec{gap:0}.strip{grid-template-columns:1fr 1fr}.strip img{height:200px}.line{min-height:400px;padding:28px}.nums{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}.logo{font-size:17px}nav div{gap:13px}nav a{font-size:12.5px}}
 @media(max-width:520px){nav{flex-direction:column;align-items:flex-start;gap:6px;padding:14px 6vw}nav div{gap:12px;flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.row{transition:none}}
 </style></head><body>
-<nav><div class="logo">Mar de Alcatrazes</div><div><a href="#sobre">Sobre</a><a href="#arquipelago">Arquipélago</a><a href="#pesquisa">Pesquisa</a><a href="#historia">História</a><a href="#livro">Livro</a></div></nav>
+<nav><div class="logo">Mar de Alcatrazes</div><div><a href="#sobre">Sobre</a><a href="#arquipelago">Arquipélago</a><a href="#pesquisa">Pesquisa</a><a href="#historia">História</a><a href="#filme">Filme</a><a href="#livro">Livro</a></div></nav>
 
-<header class="hero"><div><div class="eyebrow">Projeto 2021–2025 · LABECMar · UNIFESP</div><h1>Mar de Alcatrazes</h1><p>Monitoramento de invertebrados, peixes e fatores abióticos no ambiente marinho do Arquipélago dos Alcatrazes, litoral norte de São Paulo.</p><a class="btn" href="#sobre">Conheça o projeto</a><a class="btn o" href="#livro">Lançamento do livro</a></div></header>
+<header class="hero"><div><div class="eyebrow">Projeto 2021–2025 · LABECMar · UNIFESP</div><h1>Mar de Alcatrazes</h1><p>Monitoramento de invertebrados, peixes e fatores abióticos no ambiente marinho do Arquipélago dos Alcatrazes, litoral norte de São Paulo.</p><div class="jump" role="navigation" aria-label="Atalhos"><a href="#sobre">O projeto</a><a href="#filme">O filme</a><a href="#livro">O livro</a></div></div></header>
 
 <section class="about" id="sobre"><div class="wrap"><div class="cols"><div><div class="eyebrow">Sobre · O projeto</div>
 <p class="s">O Projeto Mar de Alcatrazes foi um programa de monitoramento e pesquisa científica desenvolvido no Refúgio de Vida Silvestre (REVIS) do Arquipélago de Alcatrazes, uma das maiores áreas marinhas protegidas do Sudeste do Brasil.</p>
@@ -98,14 +120,68 @@ footer{background:#071a29;color:#9db0be;padding:44px 6vw;font-size:14px;display:
 <p class="quote">“E mandei colocar o barco na água para ir até a ilha caçar fragatas e atobás, que eram tantos que cobriam a ilha.”<small>Pero Lopes, 1531</small></p>
 </div></div></div></section>
 
+<section class="film" id="filme"><div class="wrap">
+<div class="eyebrow">Documentário · 28 min</div>
+<h2>O filme</h2>
+<p class="lead">O fotógrafo e cinegrafista Leo Francini acompanhou o projeto e transformou cinco anos de pesquisa em um documentário sobre o Mar de Alcatrazes.</p>
+<div class="player"><iframe src="https://drive.google.com/file/d/1nOO0ocmCuNxRRJGazWXi-1mYCoTXLu7Z/preview" title="Documentário Mar de Alcatrazes" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+</div></section>
+
 <section class="book" id="livro"><div class="wrap"><div class="cols"><div>
-<div class="eyebrow">Publicação · Z Edições, 2026</div>
-<h2>O livro e o filme</h2>
+<div class="eyebrow">Publicação · 2026</div>
+<h2>O livro</h2>
 <p class="s">“Mar de Alcatrazes: monitoramento de invertebrados, peixes e fatores abióticos no ambiente marinho do Arquipélago dos Alcatrazes, litoral norte do Estado de São Paulo” reúne os resultados e os bastidores de cinco anos de pesquisa.</p>
 <p style="color:var(--mute)">Com linguagem acessível, depoimentos de campo e rica documentação fotográfica, aborda aves e mamíferos marinhos, peixes, vida bentônica e o controle de espécies exóticas. Leitura para estudantes, educadores e apoiadores da conservação dos oceanos.</p>
-<p style="color:var(--mute)">Organização: Jéssica P. Boelter, Ana Clara S. Athayde e Fábio S. Motta. O fotógrafo e cinegrafista Leo Francini produziu o documentário sobre o projeto.</p></div>
-<div class="ev"><h3>Lançamento gratuito</h3><h4>Data e hora</h4><p>25 de novembro de 2026, às 19h</p><h4>Local</h4><p>Cine Roxy · Avenida Ana Costa, 443, Gonzaga, Santos/SP</p><h4>Programação</h4><p>Exibição do filme e e-book gratuito para os presentes</p><h4>Entrada</h4><p>Franca, com ingressos limitados</p><a class="btn" href="https://forms.gle/eVLFWGz5W6Chk4AC7" target="_blank" rel="noopener">Reservar lugar</a></div>
-</div></div></section>
+<p style="color:var(--mute)">Organização: Jéssica P. Boelter, Ana Clara S. Athayde e Fábio S. Motta.</p></div>
+</div>
+
+<div class="reader" id="reader">
+<div id="bookui">
+<div class="flipwrap"><div id="flip"><span class="loadmsg">Carregando o livro…</span></div></div>
+<div class="ctrl"><button id="prev" aria-label="Página anterior">← Anterior</button><span class="cnt" id="cnt">–</span><button id="next" aria-label="Próxima página">Próxima →</button><button id="fs">Tela cheia</button><a href="https://drive.google.com/file/d/1ne5dRMr3Vbloef-ULl2IGOhSlEqikJ7r/view" target="_blank" rel="noopener">Baixar PDF</a></div>
+<p class="hint">O livro está bem aqui, basta deslizar dentro do quadro para começar a ler!</p>
+</div>
+<div class="bookfb" id="bookfb" hidden>
+<p class="hint" style="margin:0 0 16px">O livro está bem aqui, basta deslizar dentro do quadro para começar a ler!</p>
+<div class="player"><iframe src="https://drive.google.com/file/d/1ne5dRMr3Vbloef-ULl2IGOhSlEqikJ7r/preview" title="Livro Mar de Alcatrazes" loading="lazy"></iframe></div>
+</div>
+</div>
+</div></section>
+
+<script>
+(function(){
+var BOOK='Livro%20Mar%20de%20Alcatrazes%20v6%20compressed.pdf';
+var PDFJS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+var WORKER='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+var FLIP='https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js';
+var reader=document.getElementById('reader'),ui=document.getElementById('bookui'),fb=document.getElementById('bookfb'),stage=document.getElementById('flip'),cnt=document.getElementById('cnt'),started=false;
+function fallback(){ui.hidden=true;fb.hidden=false}
+function load(src){return new Promise(function(ok,no){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=no;document.head.appendChild(s)})}
+async function init(){
+if(started)return;started=true;
+try{
+var h=await fetch(BOOK,{method:'HEAD'});if(!h.ok)throw 0;
+await load(PDFJS);await load(FLIP);
+pdfjsLib.GlobalWorkerOptions.workerSrc=WORKER;
+var pdf=await pdfjsLib.getDocument(BOOK).promise,n=pdf.numPages;
+var M=21,p1=await pdf.getPage(1),v1=p1.getViewport({scale:1}),ratio=(v1.height-2*M)/(v1.width-2*M);
+stage.innerHTML='';var pages=[],done={};
+for(var i=0;i<n;i++){var d=document.createElement('div');d.className='pg'+((i===0||i===n-1)?' hard':'');d.setAttribute('data-density',(i===0||i===n-1)?'hard':'soft');d.appendChild(document.createElement('canvas'));stage.appendChild(d);pages.push(d)}
+async function render(i){if(i<0||i>=n||done[i])return;done[i]=1;var p=await pdf.getPage(i+1),b=p.getViewport({scale:1}),sc=900/(b.width-2*M),v=p.getViewport({scale:sc}),t=document.createElement('canvas');t.width=v.width;t.height=v.height;await p.render({canvasContext:t.getContext('2d'),viewport:v}).promise;var c=pages[i].firstChild,w=Math.round((b.width-2*M)*sc),h=Math.round((b.height-2*M)*sc);c.width=w;c.height=h;c.getContext('2d').drawImage(t,M*sc,M*sc,w,h,0,0,w,h)}
+stage.style.setProperty('--r',ratio);var W=500,H=Math.round(W*ratio);
+var pf=new St.PageFlip(stage,{width:W,height:H,size:'stretch',minWidth:260,maxWidth:1200,minHeight:Math.round(260*ratio),maxHeight:Math.round(1200*ratio),showCover:true,maxShadowOpacity:.4,mobileScrollSupport:false,flippingTime:800});
+pf.loadFromHTML(pages);
+function sync(){var c=pf.getCurrentPageIndex();for(var k=c-2;k<=c+4;k++)render(k);cnt.textContent=(c+1)+' / '+n}
+pf.on('flip',sync);sync();
+document.getElementById('prev').onclick=function(){pf.flipPrev()};
+document.getElementById('next').onclick=function(){pf.flipNext()};
+document.addEventListener('keydown',function(e){var r=reader.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;if(e.key==='ArrowLeft')pf.flipPrev();if(e.key==='ArrowRight')pf.flipNext()});
+document.getElementById('fs').onclick=function(){if(document.fullscreenElement)document.exitFullscreen();else if(reader.requestFullscreen)reader.requestFullscreen()};
+}catch(e){fallback()}
+}
+if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(es[0].isIntersecting){o.disconnect();init()}},{rootMargin:'600px'}).observe(reader)}else init();
+})();
+</script>
 
 <div class="strip"><img src="images/foto-19.jpg" alt="Peixe espiando entre corais"><img src="images/foto-20.jpg" alt="Anêmona vermelha sobre alga calcária"><img src="images/foto-21.jpg" alt="Molusco bivalve, com os olhos à mostra"><img src="images/foto-22.jpg" alt="Embarcação de apoio junto aos paredões da ilha"></div>
 
