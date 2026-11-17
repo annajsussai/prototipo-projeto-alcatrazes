@@ -1,267 +1,498 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0b2a3d"><link rel="icon" type="image/png" href="images/logo-labecmar.png"><link rel="apple-touch-icon" href="images/apple-touch-icon.png"><title>Mar de Alcatrazes – Projeto de monitoramento marinho · LABECMar</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--paper:#f6f4ee;--ink:#0d2233;--mute:#5b6b78;--line:#d9d6cc;--navy:#0b2a3d;--teal:#0f7c8a;--accent:#c2410c;--accent-text:#b53a0f;--focus:#0b5f6b;color-scheme:light dark}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0a1722;--ink:#e8eef3;--mute:#9db0be;--line:#223645;--teal:#5cc3d0;--accent-text:#ff9a78;--focus:#ffd0bf}}
-:root[data-theme="dark"]{--paper:#0a1722;--ink:#e8eef3;--mute:#9db0be;--line:#223645;--teal:#5cc3d0;--accent-text:#ff9a78;--focus:#ffd0bf}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.7 Inter,system-ui,sans-serif}
-h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.01em}
-.wrap{max-width:1180px;margin:auto;padding:0 6vw}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.skip{position:fixed;left:12px;top:-70px;z-index:60;background:#fff;color:#0b2a3d;padding:12px 18px;border-radius:4px;font-weight:600;text-decoration:none}.skip:focus{top:12px}
-:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:2px}
-nav,.hero,.proj,.film,.reader,footer,.line{--focus:#ffd0bf}
-main:focus{outline:none}
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b2a3d" />
+    <link rel="icon" type="image/png" href="images/logo-labecmar.png" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <meta
+      name="description"
+      content="Projeto Mar de Alcatrazes: monitoramento de invertebrados, peixes e fatores abióticos no Arquipélago dos Alcatrazes. Reportagem, documentário e livro."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mar de Alcatrazes · LABECMar" />
+    <meta property="og:description" content="Cinco anos de pesquisa marinha no Arquipélago dos Alcatrazes." />
+    <meta property="og:image" content="images/foto-01.jpg" />
+    <title>Mar de Alcatrazes – Projeto de monitoramento marinho · LABECMar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-/* ===== Barra de navegação com logos ===== */
-nav{position:absolute;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:calc(env(safe-area-inset-top,0px) + 18px) 5vw 14px;background:transparent}
-.logo{position:relative;z-index:2;text-shadow:0 1px 8px #0008;color:#fff;text-decoration:none;font:600 22px Fraunces,serif;letter-spacing:.02em;flex:none}
-.links{display:flex;align-items:center;gap:2px}
-.links a{text-shadow:0 1px 8px #0008;color:#fff;text-decoration:none;font-size:14.5px;font-weight:500;padding:0 14px;min-height:44px;display:inline-flex;align-items:center;position:relative}
-.links a::after{content:"";position:absolute;left:14px;right:14px;bottom:8px;height:2px;background:#ffb599;transform:scaleX(0);transform-origin:left;transition:transform .25s}
-.links a:hover::after{transform:scaleX(1)}
-.burger{display:none}
+    <!-- ===== Navegação ===== -->
+    <nav id="nav" aria-label="Principal">
+      <a class="logo" href="#" aria-label="Mar de Alcatrazes, início">Mar de Alcatrazes</a>
+      <div class="links" id="menu">
+        <a href="#sobre">Sobre</a><a href="#arquipelago">Arquipélago</a><a href="#pesquisa">Pesquisa</a
+        ><a href="#historia">História</a><a href="#reportagem">Reportagem</a><a href="#filme">Filme</a
+        ><a href="#livro">Livro</a>
+      </div>
+      <button
+        class="burger"
+        id="burger"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
 
-/* ===== Hero ===== */
-.hero{min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:#fff;padding:140px 6vw 9vh;background:linear-gradient(0deg,#041623ee 0%,#04162355 45%,#04162333 100%),url(images/foto-01.jpg) center/cover}
-.hero h1{font-size:clamp(42px,7vw,92px);line-height:1.02;margin:0 0 18px;max-width:900px}
-.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-text);font-weight:600;margin-bottom:18px}.hero .eyebrow{color:#ffd0bf}
-.hero p{margin:0 0 32px;font-size:18px;opacity:.92;max-width:620px}
-.jump{display:flex;flex-wrap:wrap;gap:6px 34px;margin-top:36px;padding-top:18px;border-top:1px solid #ffffff55;max-width:520px}
-.jump a{color:#fff;text-decoration:none;font:500 17px Fraunces,serif;min-height:44px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
-.jump a::after{content:" →";margin-left:6px;transition:transform .2s}.jump a:hover{border-color:#ffb599;color:#ffd0bf}.jump a:hover::after{transform:translateX(4px)}
-.btn{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:0 30px;background:var(--accent);color:#fff;text-decoration:none;font-weight:500;font-size:15px;border-radius:2px;margin:0 10px 10px 0}.btn.o{background:transparent;border:1px solid #fff9}.btn:hover{filter:brightness(1.1)}
+    <!-- ===== Topo ===== -->
+    <header class="hero">
+      <div>
+        <div class="eyebrow">
+          <span>Projeto 2021–2025</span><span class="dot"> · </span><span>LABECMar · UNIFESP</span>
+        </div>
+        <h1>Mar de Alcatrazes</h1>
+        <p>
+          Monitoramento de invertebrados, peixes e fatores abióticos no ambiente marinho do Arquipélago dos
+          Alcatrazes, litoral norte de São Paulo.
+        </p>
+        <div class="jump" role="navigation" aria-label="Atalhos">
+          <a href="#sobre">O projeto</a><a href="#reportagem">A reportagem</a><a href="#filme">O filme</a
+          ><a href="#livro">O livro</a>
+        </div>
+      </div>
+    </header>
 
-section{padding:110px 0}
-.sec{display:grid;grid-template-columns:200px 1fr;gap:40px}.sec>.eyebrow{margin-top:12px}
-h2{font-size:clamp(30px,4vw,48px);line-height:1.15;margin:0 0 28px}
-.about .cols{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:start}
-.about p.s{font-size:20px;line-height:1.65;font-family:Fraunces,serif;margin:0 0 22px}
-.about img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:66% center;border-radius:2px}
-.lead{font-size:19px;color:var(--mute);max-width:780px;margin:0 0 44px}.lead b{color:var(--ink);font-weight:600}
-.txt p{margin:0 0 20px;max-width:760px;font-size:18px}.txt p.mu{color:var(--mute)}
-.nums{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px;border-top:1px solid var(--line)}
-.nums div{padding:26px 16px 10px 0;border-bottom:1px solid var(--line)}.nums b{display:block;font:500 clamp(32px,4vw,50px)/1.1 Fraunces,serif;color:var(--teal)}.nums span{font-size:14px;color:var(--mute)}
-.lines{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.line{min-height:480px;color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center}
-.line .eyebrow{color:#ffd0bf;margin-bottom:12px}.line h3{font-size:clamp(26px,2.8vw,36px);line-height:1.15;margin:0 0 12px}
-.line p{margin:0 0 18px;font-size:15.5px;max-width:520px;line-height:1.6}
-.chips span{display:inline-block;border:1px solid #fff8;padding:4px 14px;font-size:13px;margin:0 8px 8px 0;border-radius:30px}
-.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.strip img{width:100%;height:300px;object-fit:cover;display:block}
-.tools{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
-.tool{padding:24px 0;border-top:1px solid var(--line)}.tool h3{font-size:24px;margin:0 0 6px}.tool p{margin:0;color:var(--mute)}
-.proj{background:var(--navy);color:#fff}.proj h2{color:#fff}.proj .eyebrow{color:#ffb599}
-.row{display:grid;grid-template-columns:150px 1fr;padding:22px 0;border-bottom:1px solid #ffffff26;transition:padding .25s}.row:hover{padding-left:12px}
-.row i{font:500 20px Fraunces,serif;font-style:normal;color:#ffb599}.row span{font:400 21px/1.4 Fraunces,serif}
-.quote{margin:48px 0 0;font:italic 400 24px/1.45 Fraunces,serif;color:#cfe4ea;max-width:760px}.quote small{display:block;font:400 14px Inter,sans-serif;color:#8fd0d9;margin-top:8px}
-.rep .cols{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
-.rep .btn.o{color:var(--ink);border-color:var(--line)}.rep .acts{margin-top:28px}
-.a4{position:relative;aspect-ratio:210/297;width:100%;max-width:640px;margin:0 auto;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 24px 60px #0b2a3d33,0 0 0 1px var(--line)}
-.a4 iframe,.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.film{background:#06141f;color:#fff;padding:110px 0}.film h2{color:#fff}.film .eyebrow{color:#ffb599}.film .lead{color:#b4c6d2}
-.player{position:relative;aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden;box-shadow:0 30px 80px #000a,0 0 0 1px #ffffff1f}
-.alt{margin:18px 0 0;font-size:14px;color:#8fa6b5}
-.facade{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:#000 url(images/foto-03.jpg) center/cover;display:flex;align-items:center;justify-content:center;color:#fff}
-.facade::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#041623cc,#04162366)}
-.facade span{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;font:500 17px Fraunces,serif}
-.facade i{width:78px;height:78px;border-radius:50%;background:var(--accent);display:grid;place-items:center;transition:transform .2s}
-.facade i::after{content:"";margin-left:6px;border-left:24px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent}.facade:hover i{transform:scale(1.08)}
-.book .cols{margin:0 0 48px;max-width:860px}.book p{margin:0 0 18px}.book .s{font:400 20px/1.65 Fraunces,serif}
-.reader{background:radial-gradient(ellipse at 50% 30%,#12384f 0%,#0a2233 60%,#071a29 100%);border-radius:6px;padding:48px 4vw 28px;color:#fff;box-shadow:0 24px 70px #0b2a3d55}
-.reader:fullscreen{border-radius:0;display:flex;flex-direction:column;justify-content:center}
-.flipwrap{width:100%;margin:0 auto;min-height:320px;display:flex;justify-content:center}
-#flip{width:min(100%,calc(2*(80vh - 90px)/var(--r,.9)));max-width:100%;margin:0 auto;filter:drop-shadow(0 18px 30px #0009)}
-.pg{background:#fff;overflow:hidden}.pg canvas{width:100%;height:100%;display:block}.pg.hard{background:#0b2a3d}
-.ctrl{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:30px;flex-wrap:wrap}
-.ctrl button,.ctrl a{font:500 14px Inter,sans-serif;color:#fff;background:#ffffff14;border:1px solid #ffffff40;padding:0 20px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:30px;cursor:pointer;text-decoration:none}
-.ctrl button:hover,.ctrl a:hover{background:#ffffff26}
-.ctrl .cnt{min-width:84px;text-align:center;font-size:14px;color:#b4c6d2}
-.loadmsg{align-self:center;color:#b4c6d2;font-size:15px}
-.bookfb .player{aspect-ratio:1.18/1;max-height:80vh;margin:0 auto;width:min(100%,calc(80vh*1.18))}
-.bookfb .player iframe{inset:auto;left:-7%;top:-5%;width:114%;height:118%}
-.hint{text-align:center;margin:18px 0 0;font-size:13px;color:#8fa6b5}
+    <main id="conteudo" tabindex="-1">
+      <!-- ===== Sobre o projeto ===== -->
+      <section class="about" id="sobre" aria-label="Sobre o projeto">
+        <div class="wrap">
+          <div class="cols">
+            <div>
+              <div class="eyebrow">Sobre · O projeto</div>
+              <p class="s">
+                O Projeto Mar de Alcatrazes foi um programa de monitoramento e pesquisa científica
+                desenvolvido no Refúgio de Vida Silvestre (REVIS) do Arquipélago de Alcatrazes, uma das
+                maiores áreas marinhas protegidas do Sudeste do Brasil.
+              </p>
+              <p class="s" style="color: var(--mute)">
+                Fruto da cooperação entre UNIFESP, Petrobras e FAP-UNIFESP, em parceria com o NGI-ICMBio
+                Alcatrazes, o CEBIMar-USP e a UNESP, reuniu ciência, tecnologia e formação de estudantes para
+                gerar o conhecimento que embasa a gestão das Unidades de Conservação.
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              decoding="async"
+              src="images/foto-02.jpg"
+              alt="Pesquisadora organiza o material de campo a bordo, com a camiseta do projeto"
+            />
+          </div>
+        </div>
+      </section>
 
-/* ===== Rodapé ===== */
-footer{background:#071a29;color:#9db0be;padding:48px 6vw;font-size:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
-footer b{font:600 20px Fraunces,serif;color:#fff}
+      <!-- ===== O arquipélago ===== -->
+      <section id="arquipelago" aria-label="O arquipélago" style="padding-top: 0">
+        <div class="wrap">
+          <div class="sec">
+            <div class="eyebrow">O arquipélago</div>
+            <div class="txt">
+              <h2>Alcatrazes, o “Lugar de Aves”</h2>
+              <p>
+                A cerca de 35 km de São Sebastião, o arquipélago reúne cinco ilhas (Alcatrazes, Sapata,
+                Paredão, Farol e Oratório), quatro lajes e alguns parcéis. A maior ilha tem cerca de 1,4 km²,
+                o equivalente a 200 campos de futebol, e o Pico da Boa Vista chega a 316 metros.
+              </p>
+              <p class="mu">
+                Há cerca de 11 mil anos, no fim da última Era do Gelo, o conjunto se separou do continente. O
+                isolamento fez a vida seguir caminho próprio: hoje há espécies que não existem em nenhum outro
+                lugar, como a perereca-de-alcatrazes, a jararaca-de-alcatrazes e o antúrio-de-alcatrazes.
+                Povos pré-coloniais o chamavam de Uiraretama, “Lugar de Aves”, e ali fica um dos maiores
+                ninhais de fragatas e atobás do Atlântico Sul.
+              </p>
+              <div class="nums">
+                <div><b>1.500+</b><span>espécies</span></div>
+                <div><b>12</b><span>espécies endêmicas</span></div>
+                <div><b>320+</b><span>espécies de peixes</span></div>
+                <div><b>500</b><span>invertebrados marinhos</span></div>
+                <div><b>13</b><span>baleias e golfinhos</span></div>
+                <div><b>4</b><span>tartarugas marinhas</span></div>
+                <div><b>140+</b><span>espécies ameaçadas</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-/* ===== Celular ===== */
-@media(max-width:860px){
-section{padding:76px 0}.film{padding:64px 0}
-.sec,.about .cols,.rep .cols,.lines,.tools{grid-template-columns:1fr}.sec{gap:0}.rep .cols{gap:36px}
-.sec>.eyebrow{margin:0 0 10px}
-.strip{grid-template-columns:1fr 1fr}.strip img{height:190px}
-.line{min-height:400px;padding:28px}
-.nums{grid-template-columns:1fr 1fr}.nums div:last-child:nth-child(odd){grid-column:1/-1}
-.row{grid-template-columns:1fr;padding:18px 0}.row span{font-size:19px}
-.about p.s,.book .s{font-size:18px;line-height:1.6}.txt p,.lead{font-size:17px}
-.about img{aspect-ratio:4/3}.quote{font-size:20px}.a4{max-width:100%}
-.btn{width:100%;margin:0 0 10px}
-.reader{padding:28px 3vw 20px;border-radius:4px}
-.ctrl{gap:10px;margin-top:22px}.ctrl #prev,.ctrl #next{flex:1 1 40%}.ctrl .cnt{order:-1;flex:1 0 100%}
-.facade i{width:68px;height:68px}
-footer{flex-direction:column;align-items:flex-start}
-/* barra e menu */
-nav{padding-left:4vw;padding-right:4vw}
-.logo{font-size:19px}
-.burger{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:4vw;z-index:40;display:inline-flex;width:48px;height:48px;padding:0;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#0b2a3df2;border:1px solid #ffffff66;border-radius:50%;cursor:pointer}
-.burger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s}
-.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
-.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.links{position:fixed;inset:0;z-index:1;flex-direction:column;align-items:stretch;justify-content:safe center;gap:0;padding:96px 8vw 40px;overflow:auto;background:#071a29fa;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
-.links.open{opacity:1;visibility:visible}
-.links a{font:500 26px Fraunces,serif;min-height:60px;padding:0;border-bottom:1px solid #ffffff22}.links a::after{display:none}
-/* hero */
-.hero{padding:130px 6vw 7vh;background:linear-gradient(0deg,#041623f2 0%,#041623aa 55%,#04162344 100%),url(images/foto-01.jpg) 60% center/cover}
-.hero h1{font-size:clamp(40px,13vw,60px);margin-bottom:14px}
-.hero .eyebrow{font-size:11.5px;letter-spacing:.16em;line-height:1.7}.hero .eyebrow span{display:block}.hero .eyebrow .dot{display:none}
-.hero p{font-size:16.5px;line-height:1.6;margin-bottom:6px}
-.jump{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;padding-top:0;border-top:0;max-width:none}
-.jump a{justify-content:center;min-height:50px;padding:0 12px;font-size:16px;border:1px solid #ffffff4d;border-radius:999px;background:#ffffff14}
-}
-@media(max-width:400px){.logo{font-size:17px}.ctrl #fs{flex:1 1 100%}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
-@media(forced-colors:active){.btn,.ctrl button,.ctrl a{border:1px solid ButtonText}}
-</style></head><body>
-<a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<nav id="nav" aria-label="Principal"><a class="logo" href="#" aria-label="Mar de Alcatrazes, início">Mar de Alcatrazes</a><div class="links" id="menu"><a href="#sobre">Sobre</a><a href="#arquipelago">Arquipélago</a><a href="#pesquisa">Pesquisa</a><a href="#historia">História</a><a href="#reportagem">Reportagem</a><a href="#filme">Filme</a><a href="#livro">Livro</a></div><button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button></nav>
+      <div class="strip">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-03.jpg"
+          alt="Cauda de baleia com o arquipélago ao fundo"
+        /><img loading="lazy" decoding="async" src="images/foto-04.jpg" alt="Fragatas no ninhal" /><img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-05.jpg"
+          alt="Cardume de sardinhas sob a arrebentação"
+        /><img loading="lazy" decoding="async" src="images/foto-06.jpg" alt="Água-viva em mar aberto" />
+      </div>
 
-<header class="hero"><div><div class="eyebrow"><span>Projeto 2021–2025</span><span class="dot"> · </span><span>LABECMar · UNIFESP</span></div><h1>Mar de Alcatrazes</h1><p>Monitoramento de invertebrados, peixes e fatores abióticos no ambiente marinho do Arquipélago dos Alcatrazes, litoral norte de São Paulo.</p><div class="jump" role="navigation" aria-label="Atalhos"><a href="#sobre">O projeto</a><a href="#reportagem">A reportagem</a><a href="#filme">O filme</a><a href="#livro">O livro</a></div></div></header>
+      <!-- ===== Frentes de pesquisa ===== -->
+      <section id="pesquisa" aria-label="Frentes de pesquisa" style="padding-bottom: 0">
+        <div class="wrap">
+          <div class="eyebrow">Frentes de pesquisa</div>
+          <p class="lead">
+            Marinheiros que conhecem bem o lugar guiaram pesquisadores e estudantes por
+            <b>quatro frentes</b> de trabalho, do fundo do mar à análise de dados de satélite.
+          </p>
+        </div>
+        <div class="lines">
+          <div
+            class="line"
+            style="background-image: linear-gradient(0deg, #071e2fee, #071e2f33 70%), url(images/foto-07.jpg)"
+          >
+            <div class="eyebrow">Profa. Dra. Áurea Maria Ciotti</div>
+            <h3>Fatores abióticos</h3>
+            <p>
+              Condições físico-químicas, correntes e temperatura da água, para entender como o clima molda o
+              ecossistema.
+            </p>
+            <div class="chips">
+              <span>Temperatura</span><span>Transparência</span><span>Dados de satélite</span>
+            </div>
+          </div>
+          <div
+            class="line"
+            style="background-image: linear-gradient(0deg, #071e2fee, #071e2f33 70%), url(images/foto-08.jpg)"
+          >
+            <div class="eyebrow">Prof. Dr. Fábio Motta</div>
+            <h3>Peixes</h3>
+            <p>
+              Comportamento de budiões, frades, garoupas e raias, e das agregações de tubarões ameaçados de
+              extinção.
+            </p>
+            <div class="chips">
+              <span>Censos visuais</span><span>BRUV</span><span>Telemetria acústica</span>
+            </div>
+          </div>
+          <div
+            class="line"
+            style="background-image: linear-gradient(0deg, #071e2fee, #071e2f33 70%), url(images/foto-09.jpg)"
+          >
+            <div class="eyebrow">Prof. Dr. Guilherme Pereira-Filho</div>
+            <h3>Comunidades bentônicas</h3>
+            <p>
+              Os organismos do fundo, que servem de abrigo, berçário e zona de alimentação, estudados com
+              métodos não destrutivos.
+            </p>
+            <div class="chips">
+              <span>Batimetria</span><span>Fotoquadrados</span><span>Invertebrados</span>
+            </div>
+          </div>
+          <div
+            class="line"
+            style="background-image: linear-gradient(0deg, #071e2fee, #071e2f33 70%), url(images/foto-10.jpg)"
+          >
+            <div class="eyebrow">Dr. Sérgio A. C. de Souza · Dra. María Soledad López</div>
+            <h3>Espécies exóticas</h3>
+            <p>
+              Controle de bioinvasores como o coral-sol e o mexilhão-verde. A lista de espécies não nativas
+              subiu de 11 para 23.
+            </p>
+            <div class="chips"><span>Coral-sol</span><span>Mexilhão-verde</span><span>Manejo</span></div>
+          </div>
+        </div>
+      </section>
+      <div class="strip" style="margin-top: 6px">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-11.jpg"
+          alt="Machos de fragata com o papo vermelho inflado"
+        /><img loading="lazy" decoding="async" src="images/foto-12.jpg" alt="Zoantídeos em detalhe" /><img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-13.jpg"
+          alt="Cardume sobre o costão rochoso"
+        /><img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-14.jpg"
+          alt="Dois peixes sobre o fundo rochoso"
+        />
+      </div>
 
-<main id="conteudo" tabindex="-1">
+      <!-- ===== Métodos ===== -->
+      <section id="tecnologia" aria-label="Métodos">
+        <div class="wrap">
+          <div class="sec">
+            <div class="eyebrow">Métodos</div>
+            <div>
+              <h2>Como se estuda o que ninguém vê</h2>
+              <div class="tools">
+                <div class="tool">
+                  <h3>BRUV</h3>
+                  <p>
+                    Filmagens remotas subaquáticas com isca: duas câmeras e uma caixa com sardinhas ficam pelo
+                    menos uma hora no fundo, registrando tudo o que passa.
+                  </p>
+                </div>
+                <div class="tool">
+                  <h3>Telemetria acústica</h3>
+                  <p>
+                    Receptores e microchips revelam padrões de comportamento de garoupas, raias e outras
+                    espécies.
+                  </p>
+                </div>
+                <div class="tool">
+                  <h3>Censos visuais</h3>
+                  <p>Mergulhadores contam e catalogam os peixes ao longo de cinco anos de expedições.</p>
+                </div>
+                <div class="tool">
+                  <h3>Satélite e sensores</h3>
+                  <p>
+                    Sensores térmicos, radiômetros e modelos matemáticos mostram como a vida marinha reage às
+                    anomalias térmicas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<section class="about" id="sobre" aria-label="Sobre o projeto"><div class="wrap"><div class="cols"><div><div class="eyebrow">Sobre · O projeto</div>
-<p class="s">O Projeto Mar de Alcatrazes foi um programa de monitoramento e pesquisa científica desenvolvido no Refúgio de Vida Silvestre (REVIS) do Arquipélago de Alcatrazes, uma das maiores áreas marinhas protegidas do Sudeste do Brasil.</p>
-<p class="s" style="color:var(--mute)">Fruto da cooperação entre UNIFESP, Petrobras e FAP-UNIFESP, em parceria com o NGI-ICMBio Alcatrazes, o CEBIMar-USP e a UNESP, reuniu ciência, tecnologia e formação de estudantes para gerar o conhecimento que embasa a gestão das Unidades de Conservação.</p></div>
-<img loading="lazy" decoding="async" src="images/foto-02.jpg" alt="Pesquisadora organiza o material de campo a bordo, com a camiseta do projeto"></div></div></section>
+      <div class="strip">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-15.jpg"
+          alt="Mergulhadores instalam um sensor no fundo"
+        /><img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-16.jpg"
+          alt="Mergulhador junto à boia de sinalização"
+        /><img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-17.jpg"
+          alt="Pesquisadores fazem anotações entre mergulhos"
+        /><img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-18.jpg"
+          alt="Peixe recebe marcação durante a pesquisa"
+        />
+      </div>
 
-<section id="arquipelago" aria-label="O arquipélago" style="padding-top:0"><div class="wrap"><div class="sec"><div class="eyebrow">O arquipélago</div><div class="txt">
-<h2>Alcatrazes, o “Lugar de Aves”</h2>
-<p>A cerca de 35 km de São Sebastião, o arquipélago reúne cinco ilhas (Alcatrazes, Sapata, Paredão, Farol e Oratório), quatro lajes e alguns parcéis. A maior ilha tem cerca de 1,4 km², o equivalente a 200 campos de futebol, e o Pico da Boa Vista chega a 316 metros.</p>
-<p class="mu">Há cerca de 11 mil anos, no fim da última Era do Gelo, o conjunto se separou do continente. O isolamento fez a vida seguir caminho próprio: hoje há espécies que não existem em nenhum outro lugar, como a perereca-de-alcatrazes, a jararaca-de-alcatrazes e o antúrio-de-alcatrazes. Povos pré-coloniais o chamavam de Uiraretama, “Lugar de Aves”, e ali fica um dos maiores ninhais de fragatas e atobás do Atlântico Sul.</p>
-<div class="nums"><div><b>1.500+</b><span>espécies</span></div><div><b>12</b><span>espécies endêmicas</span></div><div><b>320+</b><span>espécies de peixes</span></div><div><b>500</b><span>invertebrados marinhos</span></div><div><b>13</b><span>baleias e golfinhos</span></div><div><b>4</b><span>tartarugas marinhas</span></div><div><b>140+</b><span>espécies ameaçadas</span></div></div>
-</div></div></div></section>
+      <!-- ===== História ===== -->
+      <section class="proj" id="historia" aria-label="História">
+        <div class="wrap">
+          <div class="sec">
+            <div class="eyebrow">História</div>
+            <div>
+              <h2>Da mira dos canhões à proteção integral</h2>
+              <div class="row">
+                <i>1531</i
+                ><span
+                  >Pero Lopes registra no diário de bordo as fragatas e atobás que “cobriam a ilha”.</span
+                >
+              </div>
+              <div class="row">
+                <i>1923</i
+                ><span
+                  >Naturalistas mapeiam a ilha e coletam plantas e animais, com apoio de pescadores.</span
+                >
+              </div>
+              <div class="row">
+                <i>1979</i
+                ><span
+                  >A Marinha cria a “Área Delta”, para exercícios de tiro de canhão e bombardeios
+                  navais.</span
+                >
+              </div>
+              <div class="row">
+                <i>1987</i
+                ><span>Após quase dez anos de debates, nasce a Estação Ecológica (ESEC) Tupinambás.</span>
+              </div>
+              <div class="row">
+                <i>1989–2002</i><span>O “Projeto Alcatrazes” leva expedições científicas às ilhas.</span>
+              </div>
+              <div class="row">
+                <i>2004</i><span>Um grande incêndio, provocado pelos bombardeios, devasta a maior ilha.</span>
+              </div>
+              <div class="row">
+                <i>2016</i
+                ><span>É criado o Refúgio de Vida Silvestre (REVIS) do Arquipélago de Alcatrazes.</span>
+              </div>
+              <div class="row">
+                <i>2021–2025</i
+                ><span
+                  >O Projeto Mar de Alcatrazes monitora o ambiente marinho em quatro frentes de
+                  pesquisa.</span
+                >
+              </div>
+              <div class="row">
+                <i>2023–2024</i
+                ><span
+                  >O REVIS recebe o selo Blue Park e é reconhecido como Hope Spot pela Mission Blue.</span
+                >
+              </div>
+              <p class="quote">
+                “E mandei colocar o barco na água para ir até a ilha caçar fragatas e atobás, que eram tantos
+                que cobriam a ilha.”<small>Pero Lopes, 1531</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<div class="strip"><img loading="lazy" decoding="async" src="images/foto-03.jpg" alt="Cauda de baleia com o arquipélago ao fundo"><img loading="lazy" decoding="async" src="images/foto-04.jpg" alt="Fragatas no ninhal"><img loading="lazy" decoding="async" src="images/foto-05.jpg" alt="Cardume de sardinhas sob a arrebentação"><img loading="lazy" decoding="async" src="images/foto-06.jpg" alt="Água-viva em mar aberto"></div>
+      <!-- ===== Reportagem ===== -->
+      <section class="rep" id="reportagem" aria-labelledby="t-rep">
+        <div class="wrap">
+          <div class="cols">
+            <div>
+              <div class="eyebrow">Reportagem · Síntese</div>
+              <h2 id="t-rep">A reportagem-síntese</h2>
+              <div class="acts">
+                <a
+                  class="btn"
+                  href="https://drive.google.com/file/d/15TKUzeStwt39MXKbGlBCyoigJeUkXv5a/view"
+                  target="_blank"
+                  rel="noopener"
+                  >Abrir em tela cheia<span class="sr"> (abre em nova aba)</span></a
+                ><a
+                  class="btn o"
+                  href="https://drive.google.com/uc?export=download&id=15TKUzeStwt39MXKbGlBCyoigJeUkXv5a"
+                  target="_blank"
+                  rel="noopener"
+                  >Baixar PDF<span class="sr"> da reportagem</span></a
+                >
+              </div>
+            </div>
+            <div class="a4">
+              <iframe
+                src="https://drive.google.com/file/d/15TKUzeStwt39MXKbGlBCyoigJeUkXv5a/preview"
+                title="Reportagem-síntese Mar de Alcatrazes"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<section id="pesquisa" aria-label="Frentes de pesquisa" style="padding-bottom:0"><div class="wrap"><div class="eyebrow">Frentes de pesquisa</div><p class="lead">Marinheiros que conhecem bem o lugar guiaram pesquisadores e estudantes por <b>quatro frentes</b> de trabalho, do fundo do mar à análise de dados de satélite.</p></div>
-<div class="lines">
-<div class="line" style="background-image:linear-gradient(0deg,#071e2fee,#071e2f33 70%),url(images/foto-07.jpg)"><div class="eyebrow">Profa. Dra. Áurea Maria Ciotti</div><h3>Fatores abióticos</h3><p>Condições físico-químicas, correntes e temperatura da água, para entender como o clima molda o ecossistema.</p><div class="chips"><span>Temperatura</span><span>Transparência</span><span>Dados de satélite</span></div></div>
-<div class="line" style="background-image:linear-gradient(0deg,#071e2fee,#071e2f33 70%),url(images/foto-08.jpg)"><div class="eyebrow">Prof. Dr. Fábio Motta</div><h3>Peixes</h3><p>Comportamento de budiões, frades, garoupas e raias, e das agregações de tubarões ameaçados de extinção.</p><div class="chips"><span>Censos visuais</span><span>BRUV</span><span>Telemetria acústica</span></div></div>
-<div class="line" style="background-image:linear-gradient(0deg,#071e2fee,#071e2f33 70%),url(images/foto-09.jpg)"><div class="eyebrow">Prof. Dr. Guilherme Pereira-Filho</div><h3>Comunidades bentônicas</h3><p>Os organismos do fundo, que servem de abrigo, berçário e zona de alimentação, estudados com métodos não destrutivos.</p><div class="chips"><span>Batimetria</span><span>Fotoquadrados</span><span>Invertebrados</span></div></div>
-<div class="line" style="background-image:linear-gradient(0deg,#071e2fee,#071e2f33 70%),url(images/foto-10.jpg)"><div class="eyebrow">Dr. Sérgio A. C. de Souza · Dra. María Soledad López</div><h3>Espécies exóticas</h3><p>Controle de bioinvasores como o coral-sol e o mexilhão-verde. A lista de espécies não nativas subiu de 11 para 23.</p><div class="chips"><span>Coral-sol</span><span>Mexilhão-verde</span><span>Manejo</span></div></div>
-</div></section>
-<div class="strip" style="margin-top:6px"><img loading="lazy" decoding="async" src="images/foto-11.jpg" alt="Machos de fragata com o papo vermelho inflado"><img loading="lazy" decoding="async" src="images/foto-12.jpg" alt="Zoantídeos em detalhe"><img loading="lazy" decoding="async" src="images/foto-13.jpg" alt="Cardume sobre o costão rochoso"><img loading="lazy" decoding="async" src="images/foto-14.jpg" alt="Dois peixes sobre o fundo rochoso"></div>
+      <!-- ===== Filme ===== -->
+      <section class="film" id="filme" aria-labelledby="t-film">
+        <div class="wrap">
+          <div class="eyebrow">Documentário · 28 min</div>
+          <h2 id="t-film">O filme</h2>
+          <p class="lead">
+            O fotógrafo e cinegrafista Leo Francini acompanhou o projeto e transformou cinco anos de pesquisa
+            em um documentário sobre o Mar de Alcatrazes.
+          </p>
+          <div class="player" id="filmPlayer">
+            <button class="facade" id="filmPlay" type="button" aria-label="Assistir ao documentário">
+              <span><i></i>Assistir ao documentário</span>
+            </button>
+          </div>
+          <p class="alt">O filme é pesado e pode demorar para carregar no celular.</p>
+        </div>
+      </section>
 
-<section id="tecnologia" aria-label="Métodos"><div class="wrap"><div class="sec"><div class="eyebrow">Métodos</div><div>
-<h2>Como se estuda o que ninguém vê</h2>
-<div class="tools">
-<div class="tool"><h3>BRUV</h3><p>Filmagens remotas subaquáticas com isca: duas câmeras e uma caixa com sardinhas ficam pelo menos uma hora no fundo, registrando tudo o que passa.</p></div>
-<div class="tool"><h3>Telemetria acústica</h3><p>Receptores e microchips revelam padrões de comportamento de garoupas, raias e outras espécies.</p></div>
-<div class="tool"><h3>Censos visuais</h3><p>Mergulhadores contam e catalogam os peixes ao longo de cinco anos de expedições.</p></div>
-<div class="tool"><h3>Satélite e sensores</h3><p>Sensores térmicos, radiômetros e modelos matemáticos mostram como a vida marinha reage às anomalias térmicas.</p></div>
-</div></div></div></div></section>
+      <!-- ===== Livro (leitor com virada de página) ===== -->
+      <section class="book" id="livro" aria-labelledby="t-livro">
+        <div class="wrap">
+          <div class="cols">
+            <div>
+              <div class="eyebrow">Publicação · 2026</div>
+              <h2 id="t-livro">O livro</h2>
+              <p class="s">
+                “Mar de Alcatrazes: monitoramento de invertebrados, peixes e fatores abióticos no ambiente
+                marinho do Arquipélago dos Alcatrazes, litoral norte do Estado de São Paulo” reúne os
+                resultados e os bastidores de cinco anos de pesquisa.
+              </p>
+              <p style="color: var(--mute)">
+                Com linguagem acessível, depoimentos de campo e rica documentação fotográfica, aborda aves e
+                mamíferos marinhos, peixes, vida bentônica e o controle de espécies exóticas. Leitura para
+                estudantes, educadores e apoiadores da conservação dos oceanos.
+              </p>
+              <p style="color: var(--mute)">
+                Organização: Jéssica P. Boelter, Ana Clara S. Athayde e Fábio S. Motta.
+              </p>
+            </div>
+          </div>
 
-<div class="strip"><img loading="lazy" decoding="async" src="images/foto-15.jpg" alt="Mergulhadores instalam um sensor no fundo"><img loading="lazy" decoding="async" src="images/foto-16.jpg" alt="Mergulhador junto à boia de sinalização"><img loading="lazy" decoding="async" src="images/foto-17.jpg" alt="Pesquisadores fazem anotações entre mergulhos"><img loading="lazy" decoding="async" src="images/foto-18.jpg" alt="Peixe recebe marcação durante a pesquisa"></div>
+          <div class="reader" id="reader" role="region" aria-label="Leitor do livro">
+            <div id="bookui">
+              <div class="flipwrap">
+                <div id="flip"><span class="loadmsg">Carregando o livro…</span></div>
+              </div>
+              <div class="ctrl">
+                <button id="prev" aria-label="Página anterior">← Anterior</button
+                ><span class="cnt" id="cnt" role="status" aria-live="polite">–</span
+                ><button id="next" aria-label="Próxima página">Próxima →</button
+                ><button id="fs" aria-label="Ler o livro em tela cheia">Tela cheia</button
+                ><a
+                  href="https://drive.google.com/file/d/1ne5dRMr3Vbloef-ULl2IGOhSlEqikJ7r/view"
+                  target="_blank"
+                  rel="noopener"
+                  >Baixar PDF<span class="sr"> (abre em nova aba)</span></a
+                >
+              </div>
+              <p class="hint">
+                No PC, clique ou arraste o canto da página, ou use as setas ← →. No celular, basta deslizar.
+              </p>
+            </div>
+            <div class="bookfb" id="bookfb" hidden>
+              <p class="hint" style="margin: 0 0 16px">
+                No PC, clique ou arraste o canto da página, ou use as setas ← →. No celular, basta deslizar.
+              </p>
+              <div class="player">
+                <iframe
+                  src="https://drive.google.com/file/d/1ne5dRMr3Vbloef-ULl2IGOhSlEqikJ7r/preview"
+                  title="Livro Mar de Alcatrazes"
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<section class="proj" id="historia" aria-label="História"><div class="wrap"><div class="sec"><div class="eyebrow">História</div><div>
-<h2>Da mira dos canhões à proteção integral</h2>
-<div class="row"><i>1531</i><span>Pero Lopes registra no diário de bordo as fragatas e atobás que “cobriam a ilha”.</span></div>
-<div class="row"><i>1923</i><span>Naturalistas mapeiam a ilha e coletam plantas e animais, com apoio de pescadores.</span></div>
-<div class="row"><i>1979</i><span>A Marinha cria a “Área Delta”, para exercícios de tiro de canhão e bombardeios navais.</span></div>
-<div class="row"><i>1987</i><span>Após quase dez anos de debates, nasce a Estação Ecológica (ESEC) Tupinambás.</span></div>
-<div class="row"><i>1989–2002</i><span>O “Projeto Alcatrazes” leva expedições científicas às ilhas.</span></div>
-<div class="row"><i>2004</i><span>Um grande incêndio, provocado pelos bombardeios, devasta a maior ilha.</span></div>
-<div class="row"><i>2016</i><span>É criado o Refúgio de Vida Silvestre (REVIS) do Arquipélago de Alcatrazes.</span></div>
-<div class="row"><i>2021–2025</i><span>O Projeto Mar de Alcatrazes monitora o ambiente marinho em quatro frentes de pesquisa.</span></div>
-<div class="row"><i>2023–2024</i><span>O REVIS recebe o selo Blue Park e é reconhecido como Hope Spot pela Mission Blue.</span></div>
-<p class="quote">“E mandei colocar o barco na água para ir até a ilha caçar fragatas e atobás, que eram tantos que cobriam a ilha.”<small>Pero Lopes, 1531</small></p>
-</div></div></div></section>
+      <div class="strip">
+        <img loading="lazy" decoding="async" src="images/foto-19.jpg" alt="Peixe espiando entre corais" /><img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-20.jpg"
+          alt="Anêmona vermelha sobre alga calcária"
+        /><img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-21.jpg"
+          alt="Molusco bivalve, com os olhos à mostra"
+        /><img
+          loading="lazy"
+          decoding="async"
+          src="images/foto-22.jpg"
+          alt="Embarcação de apoio junto aos paredões da ilha"
+        />
+      </div>
+    </main>
 
-<section class="rep" id="reportagem" aria-labelledby="t-rep"><div class="wrap"><div class="cols"><div>
-<div class="eyebrow">Reportagem · Síntese</div>
-<h2 id="t-rep">A reportagem-síntese</h2>
-<div class="acts"><a class="btn" href="https://drive.google.com/file/d/15TKUzeStwt39MXKbGlBCyoigJeUkXv5a/view" target="_blank" rel="noopener">Abrir em tela cheia<span class="sr"> (abre em nova aba)</span></a><a class="btn o" href="https://drive.google.com/uc?export=download&id=15TKUzeStwt39MXKbGlBCyoigJeUkXv5a" target="_blank" rel="noopener">Baixar PDF<span class="sr"> da reportagem</span></a></div>
-</div>
-<div class="a4"><iframe src="https://drive.google.com/file/d/15TKUzeStwt39MXKbGlBCyoigJeUkXv5a/preview" title="Reportagem-síntese Mar de Alcatrazes" loading="lazy"></iframe></div>
-</div></div></section>
+    <!-- ===== Rodapé ===== -->
+    <footer>
+      <div>
+        <b>Mar de Alcatrazes</b><br />Projeto de pesquisa · LABECMar, Laboratório de Ecologia e Conservação
+        Marinha · UNIFESP
+      </div>
+      <div>
+        UNIFESP · Petrobras · FAP-UNIFESP · NGI-ICMBio Alcatrazes · CEBIMar-USP · UNESP<br />Fotos: Leo
+        Francini
+      </div>
+    </footer>
 
-<section class="film" id="filme" aria-labelledby="t-film"><div class="wrap">
-<div class="eyebrow">Documentário · 28 min</div>
-<h2 id="t-film">O filme</h2>
-<p class="lead">O fotógrafo e cinegrafista Leo Francini acompanhou o projeto e transformou cinco anos de pesquisa em um documentário sobre o Mar de Alcatrazes.</p>
-<div class="player" id="filmPlayer"><button class="facade" id="filmPlay" type="button" aria-label="Assistir ao documentário"><span><i></i>Assistir ao documentário</span></button></div>
-<p class="alt">O filme é pesado e pode demorar para carregar no celular.</p>
-</div></section>
-
-<section class="book" id="livro" aria-labelledby="t-livro"><div class="wrap"><div class="cols"><div>
-<div class="eyebrow">Publicação · 2026</div>
-<h2 id="t-livro">O livro</h2>
-<p class="s">“Mar de Alcatrazes: monitoramento de invertebrados, peixes e fatores abióticos no ambiente marinho do Arquipélago dos Alcatrazes, litoral norte do Estado de São Paulo” reúne os resultados e os bastidores de cinco anos de pesquisa.</p>
-<p style="color:var(--mute)">Com linguagem acessível, depoimentos de campo e rica documentação fotográfica, aborda aves e mamíferos marinhos, peixes, vida bentônica e o controle de espécies exóticas. Leitura para estudantes, educadores e apoiadores da conservação dos oceanos.</p>
-<p style="color:var(--mute)">Organização: Jéssica P. Boelter, Ana Clara S. Athayde e Fábio S. Motta.</p></div></div>
-
-<div class="reader" id="reader" role="region" aria-label="Leitor do livro">
-<div id="bookui">
-<div class="flipwrap"><div id="flip"><span class="loadmsg">Carregando o livro…</span></div></div>
-<div class="ctrl"><button id="prev" aria-label="Página anterior">← Anterior</button><span class="cnt" id="cnt" role="status" aria-live="polite">–</span><button id="next" aria-label="Próxima página">Próxima →</button><button id="fs" aria-label="Ler o livro em tela cheia">Tela cheia</button><a href="https://drive.google.com/file/d/1ne5dRMr3Vbloef-ULl2IGOhSlEqikJ7r/view" target="_blank" rel="noopener">Baixar PDF<span class="sr"> (abre em nova aba)</span></a></div>
-<p class="hint">O livro está bem aqui, basta deslizar dentro do quadro para começar a ler!</p>
-</div>
-<div class="bookfb" id="bookfb" hidden>
-<p class="hint" style="margin:0 0 16px">O livro está bem aqui, basta deslizar dentro do quadro para começar a ler!</p>
-<div class="player"><iframe src="https://drive.google.com/file/d/1ne5dRMr3Vbloef-ULl2IGOhSlEqikJ7r/preview" title="Livro Mar de Alcatrazes" loading="lazy"></iframe></div>
-</div>
-</div>
-</div></section>
-
-<div class="strip"><img loading="lazy" decoding="async" src="images/foto-19.jpg" alt="Peixe espiando entre corais"><img loading="lazy" decoding="async" src="images/foto-20.jpg" alt="Anêmona vermelha sobre alga calcária"><img loading="lazy" decoding="async" src="images/foto-21.jpg" alt="Molusco bivalve, com os olhos à mostra"><img loading="lazy" decoding="async" src="images/foto-22.jpg" alt="Embarcação de apoio junto aos paredões da ilha"></div>
-</main>
-
-<footer><div><b>Mar de Alcatrazes</b><br>Projeto de pesquisa · LABECMar, Laboratório de Ecologia e Conservação Marinha · UNIFESP</div><div>UNIFESP · Petrobras · FAP-UNIFESP · NGI-ICMBio Alcatrazes · CEBIMar-USP · UNESP<br>Fotos: Leo Francini</div></footer>
-
-<script>
-(function(){
-var BOOK='Livro%20Mar%20de%20Alcatrazes%20v6%20compressed.pdf';
-var PDFJS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
-var WORKER='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-var FLIP='https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js';
-var reader=document.getElementById('reader'),ui=document.getElementById('bookui'),fb=document.getElementById('bookfb'),stage=document.getElementById('flip'),cnt=document.getElementById('cnt'),started=false;
-function fallback(){ui.hidden=true;fb.hidden=false}
-function load(src){return new Promise(function(ok,no){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=no;document.head.appendChild(s)})}
-async function init(){
-if(started)return;started=true;
-try{
-var h=await fetch(BOOK,{method:'HEAD'});if(!h.ok)throw 0;
-await load(PDFJS);await load(FLIP);
-pdfjsLib.GlobalWorkerOptions.workerSrc=WORKER;
-var pdf=await pdfjsLib.getDocument(BOOK).promise,n=pdf.numPages;
-var M=21,p1=await pdf.getPage(1),v1=p1.getViewport({scale:1}),ratio=(v1.height-2*M)/(v1.width-2*M);
-stage.innerHTML='';var pages=[],done={};
-for(var i=0;i<n;i++){var d=document.createElement('div');d.className='pg'+((i===0||i===n-1)?' hard':'');d.setAttribute('data-density',(i===0||i===n-1)?'hard':'soft');d.appendChild(document.createElement('canvas'));stage.appendChild(d);pages.push(d)}
-async function render(i){if(i<0||i>=n||done[i])return;done[i]=1;var p=await pdf.getPage(i+1),b=p.getViewport({scale:1}),sc=900/(b.width-2*M),v=p.getViewport({scale:sc}),t=document.createElement('canvas');t.width=v.width;t.height=v.height;await p.render({canvasContext:t.getContext('2d'),viewport:v}).promise;var c=pages[i].firstChild,w=Math.round((b.width-2*M)*sc),h=Math.round((b.height-2*M)*sc);c.width=w;c.height=h;c.getContext('2d').drawImage(t,M*sc,M*sc,w,h,0,0,w,h)}
-stage.style.setProperty('--r',ratio);var W=500,H=Math.round(W*ratio);
-var pf=new St.PageFlip(stage,{width:W,height:H,size:'stretch',minWidth:260,maxWidth:1200,minHeight:Math.round(260*ratio),maxHeight:Math.round(1200*ratio),showCover:true,maxShadowOpacity:.4,mobileScrollSupport:false,flippingTime:800});
-pf.loadFromHTML(pages);
-function sync(){var c=pf.getCurrentPageIndex();for(var k=c-2;k<=c+4;k++)render(k);cnt.textContent=(c+1)+' / '+n}
-pf.on('flip',sync);sync();
-document.getElementById('prev').onclick=function(){pf.flipPrev()};
-document.getElementById('next').onclick=function(){pf.flipNext()};
-document.addEventListener('keydown',function(e){var r=reader.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;if(e.key==='ArrowLeft')pf.flipPrev();if(e.key==='ArrowRight')pf.flipNext()});
-document.getElementById('fs').onclick=function(){if(document.fullscreenElement)document.exitFullscreen();else if(reader.requestFullscreen)reader.requestFullscreen()};
-}catch(e){fallback()}
-}
-if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(es[0].isIntersecting){o.disconnect();init()}},{rootMargin:'600px'}).observe(reader)}else init();
-})();
-(function(){var b=document.getElementById('filmPlay'),p=document.getElementById('filmPlayer');if(!b)return;
-b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://drive.google.com/file/d/1nOO0ocmCuNxRRJGazWXi-1mYCoTXLu7Z/preview';f.title='Documentário Mar de Alcatrazes';f.allow='autoplay; fullscreen; picture-in-picture';f.allowFullscreen=true;p.replaceChildren(f);f.focus()})})();
-(function(){var b=document.getElementById('burger'),m=document.getElementById('menu'),nav=document.getElementById('nav');
-function set(o){b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');m.classList.toggle('open',o);document.documentElement.style.overflow=o?'hidden':''}
-b.addEventListener('click',function(){set(b.getAttribute('aria-expanded')!=='true')});
-m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
-var mq=matchMedia('(min-width:861px)');if(mq.addEventListener)mq.addEventListener('change',function(e){if(e.matches)set(false)});
-})();
-</script>
-</body></html>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
