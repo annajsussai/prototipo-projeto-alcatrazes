@@ -929,3 +929,17 @@ footer b {
     border: 1px solid ButtonText;
   }
 }
+
+/* ===== Dica do leitor: texto diferente no PC e no celular ===== */
+.so-cel {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .so-pc {
+    display: none;
+  }
+  .so-cel {
+    display: inline;
+  }
+}
