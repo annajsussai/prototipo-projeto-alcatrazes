@@ -49,17 +49,14 @@ h2{font-size:clamp(30px,4vw,48px);line-height:1.15;margin:0 0 28px}
 .reader{background:radial-gradient(ellipse at 50% 30%,#12384f 0%,#0a2233 60%,#071a29 100%);border-radius:6px;padding:48px 4vw 28px;color:#fff;box-shadow:0 24px 70px #0b2a3d55}
 .reader:fullscreen{border-radius:0;display:flex;flex-direction:column;justify-content:center}
 .flipwrap{width:100%;margin:0 auto;min-height:320px;display:flex;justify-content:center}
-#flip{--z:1;width:calc(min(100%,calc(2*(80vh - 90px)/var(--r,.9))) * var(--z));max-width:100%;margin:0 auto}
-@media(max-width:700px){#flip{width:calc(min(100%,calc((80vh - 90px)/var(--r,.9))) * var(--z))}}
+#flip{width:min(100%,calc(2*(80vh - 90px)/var(--r,.9)));max-width:100%;margin:0 auto}
+@media(max-width:700px){#flip{width:min(100%,calc((80vh - 90px)/var(--r,.9)))}}
 #flip{filter:drop-shadow(0 18px 30px #0009)}
-.flipwrap.zoomed{display:block;overflow:auto;-webkit-overflow-scrolling:touch;max-height:75vh;max-height:75svh}
-.flipwrap.zoomed #flip{max-width:none;pointer-events:none;margin:0}
 .pg{background:#fff;overflow:hidden}.pg canvas{width:100%;height:100%;display:block}
 .pg.hard{background:#0b2a3d}
 .ctrl{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:30px;flex-wrap:wrap}
 .ctrl button,.ctrl a{font:500 14px Inter,sans-serif;color:#fff;background:#ffffff14;border:1px solid #ffffff40;padding:10px 20px;border-radius:30px;cursor:pointer;text-decoration:none}
 .ctrl button:hover,.ctrl a:hover{background:#ffffff26}
-.ctrl button:disabled{opacity:.4;cursor:default}
 .ctrl .cnt{min-width:84px;text-align:center;font-size:14px;color:#b4c6d2}
 .loadmsg{align-self:center;color:#b4c6d2;font-size:15px}
 .bookfb .player{aspect-ratio:1.18/1;height:auto;max-height:80vh;margin:0 auto;width:min(100%,calc(80vh*1.18))}
@@ -143,7 +140,6 @@ nav{flex-direction:column;align-items:flex-start;gap:2px;padding:12px 5vw 6px}
 
 /* ===== Menu hambúrguer (celular) ===== */
 .burger{display:none}
-.ctrl #zout,.ctrl #zin{min-width:48px;padding:10px 16px}
 @media(max-width:860px){
 nav,nav.x{flex-direction:row;align-items:center;justify-content:space-between;padding:14px 5vw 6px}
 .burger{display:inline-flex;position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:4vw;z-index:30;width:48px;height:48px;padding:0;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#0b2a3df2;border:1px solid #ffffff59;border-radius:50%;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 4px 16px #0006}
@@ -154,14 +150,39 @@ nav,nav.x{flex-direction:row;align-items:center;justify-content:space-between;pa
 nav .links{position:fixed;inset:0;z-index:25;width:auto;margin:0;flex-direction:column;align-items:stretch;justify-content:center;gap:0;padding:88px 8vw 40px;overflow:auto;white-space:normal;background:#071a29f7;-webkit-mask-image:none;mask-image:none;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
 nav .links.open{opacity:1;visibility:visible}
 nav .links a{font:500 26px Fraunces,serif;min-height:58px;padding:0;border-bottom:1px solid #ffffff22;flex:none}
-.ctrl #zout,.ctrl #zin{flex:1 1 20%}
-.ctrl #fs{flex:1 1 40%}
+}
+
+/* ===== Logos e hero no celular ===== */
+.sponsors{display:inline-flex;align-items:center;gap:16px;background:#fffffff2;border-radius:18px;padding:10px 18px;margin:0 0 28px;box-shadow:0 10px 30px #0005}
+.sponsors img{height:70px;width:auto;display:block}
+.sponsors .vr{width:1px;align-self:stretch;background:#0b2a3d26}
+footer .sponsors{margin:0;align-self:flex-start}footer .sponsors img{height:56px}
+@media(max-width:860px){
+.sponsors{padding:8px 14px;gap:12px;margin-bottom:22px;border-radius:16px}
+.sponsors img{height:58px}
+footer .sponsors img{height:52px}
+.hero .eyebrow{font-size:11.5px;letter-spacing:.16em;line-height:1.7;margin-bottom:14px}
+.hero .eyebrow span{display:block}.hero .eyebrow .dot{display:none}
+.hero h1{margin-bottom:14px}
+.hero p{font-size:16.5px;line-height:1.6;margin-bottom:6px}
+.jump{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;padding-top:0;border-top:0}
+.jump a{justify-content:center;min-height:50px;padding:0 12px;font-size:16px;border:1px solid #ffffff4d;border-radius:999px;background:#ffffff14;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.jump a::after{margin-left:6px}
+.jump a:hover{border-color:#ffb599}
+}
+
+/* ===== Logos dentro do menu hambúrguer ===== */
+nav .links .menu-logos{display:none}
+@media(max-width:860px){
+.hero .sponsors{display:none}
+nav .links{justify-content:safe center}
+nav .links .menu-logos{display:inline-flex;align-self:flex-start;margin:0 0 20px;flex:none}
 }
 </style></head><body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<nav aria-label="Principal"><div class="logo">Mar de Alcatrazes</div><div class="links" id="menu"><a href="#sobre">Sobre</a><a href="#arquipelago">Arquipélago</a><a href="#pesquisa">Pesquisa</a><a href="#historia">História</a><a href="#reportagem">Reportagem</a><a href="#filme">Filme</a><a href="#livro">Livro</a></div><button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button></nav>
+<nav aria-label="Principal"><div class="logo">Mar de Alcatrazes</div><div class="links" id="menu"><div class="sponsors menu-logos"><img src="images/logo-mar-de-alcatrazes.png" alt="Logo do Projeto Mar de Alcatrazes" width="58" height="58"><span class="vr" aria-hidden="true"></span><img src="images/logo-labecmar.png" alt="Logo do LABECMar, UNIFESP" width="72" height="58"></div><a href="#sobre">Sobre</a><a href="#arquipelago">Arquipélago</a><a href="#pesquisa">Pesquisa</a><a href="#historia">História</a><a href="#reportagem">Reportagem</a><a href="#filme">Filme</a><a href="#livro">Livro</a></div><button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button></nav>
 
-<header class="hero"><div><div class="eyebrow">Projeto 2021–2025 · LABECMar · UNIFESP</div><h1>Mar de Alcatrazes</h1><p>Monitoramento de invertebrados, peixes e fatores abióticos no ambiente marinho do Arquipélago dos Alcatrazes, litoral norte de São Paulo.</p><div class="jump" role="navigation" aria-label="Atalhos"><a href="#sobre">O projeto</a><a href="#reportagem">A reportagem</a><a href="#filme">O filme</a><a href="#livro">O livro</a></div></div></header>
+<header class="hero"><div><div class="sponsors"><img src="images/logo-mar-de-alcatrazes.png" alt="Logo do Projeto Mar de Alcatrazes" width="70" height="70"><span class="vr" aria-hidden="true"></span><img src="images/logo-labecmar.png" alt="Logo do LABECMar, UNIFESP" width="87" height="70"></div><div class="eyebrow"><span>Projeto 2021–2025</span><span class="dot"> · </span><span>LABECMar · UNIFESP</span></div><h1>Mar de Alcatrazes</h1><p>Monitoramento de invertebrados, peixes e fatores abióticos no ambiente marinho do Arquipélago dos Alcatrazes, litoral norte de São Paulo.</p><div class="jump" role="navigation" aria-label="Atalhos"><a href="#sobre">O projeto</a><a href="#reportagem">A reportagem</a><a href="#filme">O filme</a><a href="#livro">O livro</a></div></div></header>
 
 <main id="conteudo" tabindex="-1">
 
@@ -239,9 +260,9 @@ nav .links a{font:500 26px Fraunces,serif;min-height:58px;padding:0;border-botto
 
 <div class="reader" id="reader" role="region" aria-label="Leitor do livro">
 <div id="bookui">
-<div class="flipwrap" id="flipwrap"><div id="flip"><span class="loadmsg">Carregando o livro…</span></div></div>
-<div class="ctrl"><button id="prev" aria-label="Página anterior">← Anterior</button><span class="cnt" id="cnt" role="status" aria-live="polite">–</span><button id="next" aria-label="Próxima página">Próxima →</button><button id="zout" aria-label="Diminuir o tamanho da página" disabled>A−</button><button id="zin" aria-label="Aumentar o tamanho da página">A+</button><button id="fs" aria-label="Ler o livro em tela cheia">Tela cheia</button><a href="https://drive.google.com/file/d/1ne5dRMr3Vbloef-ULl2IGOhSlEqikJ7r/view" target="_blank" rel="noopener">Baixar PDF<span class="sr"> (abre em nova aba)</span></a></div>
-<p class="hint" id="hint">O livro está bem aqui, basta deslizar dentro do quadro para começar a ler!</p>
+<div class="flipwrap"><div id="flip"><span class="loadmsg">Carregando o livro…</span></div></div>
+<div class="ctrl"><button id="prev" aria-label="Página anterior">← Anterior</button><span class="cnt" id="cnt" role="status" aria-live="polite">–</span><button id="next" aria-label="Próxima página">Próxima →</button><button id="fs" aria-label="Ler o livro em tela cheia">Tela cheia</button><a href="https://drive.google.com/file/d/1ne5dRMr3Vbloef-ULl2IGOhSlEqikJ7r/view" target="_blank" rel="noopener">Baixar PDF<span class="sr"> (abre em nova aba)</span></a></div>
+<p class="hint">O livro está bem aqui, basta deslizar dentro do quadro para começar a ler!</p>
 </div>
 <div class="bookfb" id="bookfb" hidden>
 <p class="hint" style="margin:0 0 16px">O livro está bem aqui, basta deslizar dentro do quadro para começar a ler!</p>
@@ -256,8 +277,7 @@ var BOOK='Livro%20Mar%20de%20Alcatrazes%20v6%20compressed.pdf';
 var PDFJS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
 var WORKER='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 var FLIP='https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js';
-var reader=document.getElementById('reader'),ui=document.getElementById('bookui'),fb=document.getElementById('bookfb'),stage=document.getElementById('flip'),fw=document.getElementById('flipwrap'),cnt=document.getElementById('cnt'),hint=document.getElementById('hint'),zin=document.getElementById('zin'),zout=document.getElementById('zout'),started=false;
-var HINT=hint.textContent,Z=[1,1.5,2,2.5],RW=[900,1300,1600,1900],zi=0;
+var reader=document.getElementById('reader'),ui=document.getElementById('bookui'),fb=document.getElementById('bookfb'),stage=document.getElementById('flip'),cnt=document.getElementById('cnt'),started=false;
 function fallback(){ui.hidden=true;fb.hidden=false}
 function load(src){return new Promise(function(ok,no){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=no;document.head.appendChild(s)})}
 async function init(){
@@ -270,18 +290,12 @@ var pdf=await pdfjsLib.getDocument(BOOK).promise,n=pdf.numPages;
 var M=21,p1=await pdf.getPage(1),v1=p1.getViewport({scale:1}),ratio=(v1.height-2*M)/(v1.width-2*M);
 stage.innerHTML='';var pages=[],done={};
 for(var i=0;i<n;i++){var d=document.createElement('div');d.className='pg'+((i===0||i===n-1)?' hard':'');d.setAttribute('data-density',(i===0||i===n-1)?'hard':'soft');d.appendChild(document.createElement('canvas'));stage.appendChild(d);pages.push(d)}
-async function render(i){var T=RW[zi];if(i<0||i>=n||done[i]===T)return;done[i]=T;var p=await pdf.getPage(i+1),b=p.getViewport({scale:1}),sc=T/(b.width-2*M),v=p.getViewport({scale:sc}),t=document.createElement('canvas');t.width=v.width;t.height=v.height;await p.render({canvasContext:t.getContext('2d'),viewport:v}).promise;var c=pages[i].firstChild,w=Math.round((b.width-2*M)*sc),h=Math.round((b.height-2*M)*sc);c.width=w;c.height=h;c.getContext('2d').drawImage(t,M*sc,M*sc,w,h,0,0,w,h)}
+async function render(i){if(i<0||i>=n||done[i])return;done[i]=1;var p=await pdf.getPage(i+1),b=p.getViewport({scale:1}),sc=900/(b.width-2*M),v=p.getViewport({scale:sc}),t=document.createElement('canvas');t.width=v.width;t.height=v.height;await p.render({canvasContext:t.getContext('2d'),viewport:v}).promise;var c=pages[i].firstChild,w=Math.round((b.width-2*M)*sc),h=Math.round((b.height-2*M)*sc);c.width=w;c.height=h;c.getContext('2d').drawImage(t,M*sc,M*sc,w,h,0,0,w,h)}
 stage.style.setProperty('--r',ratio);var W=500,H=Math.round(W*ratio);
-var pf=new St.PageFlip(stage,{width:W,height:H,size:'stretch',minWidth:260,maxWidth:2000,minHeight:Math.round(260*ratio),maxHeight:Math.round(2000*ratio),showCover:true,maxShadowOpacity:.4,mobileScrollSupport:false,flippingTime:800});
+var pf=new St.PageFlip(stage,{width:W,height:H,size:'stretch',minWidth:260,maxWidth:1200,minHeight:Math.round(260*ratio),maxHeight:Math.round(1200*ratio),showCover:true,maxShadowOpacity:.4,mobileScrollSupport:false,flippingTime:800});
 pf.loadFromHTML(pages);
-function sync(){var c=pf.getCurrentPageIndex(),a=zi?1:2,z=zi?2:4;for(var k=c-a;k<=c+z;k++)render(k);cnt.textContent=(c+1)+' / '+n+(zi?' · '+Math.round(Z[zi]*100)+'%':'')}
+function sync(){var c=pf.getCurrentPageIndex();for(var k=c-2;k<=c+4;k++)render(k);cnt.textContent=(c+1)+' / '+n}
 pf.on('flip',sync);sync();
-function zoom(dir){var k=Math.max(0,Math.min(Z.length-1,zi+dir));if(k===zi)return;zi=k;
-fw.classList.toggle('zoomed',zi>0);stage.style.setProperty('--z',Z[zi]);
-hint.textContent=zi?'Arraste para mover a página. Use Anterior e Próxima para virar.':HINT;
-zout.disabled=zi===0;zin.disabled=zi===Z.length-1;
-requestAnimationFrame(function(){try{pf.update()}catch(e){}window.dispatchEvent(new Event('resize'));setTimeout(function(){sync();fw.scrollLeft=(fw.scrollWidth-fw.clientWidth)/2;fw.scrollTop=0},120)})}
-zin.onclick=function(){zoom(1)};zout.onclick=function(){zoom(-1)};
 document.getElementById('prev').onclick=function(){pf.flipPrev()};
 document.getElementById('next').onclick=function(){pf.flipNext()};
 document.addEventListener('keydown',function(e){var r=reader.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;if(e.key==='ArrowLeft')pf.flipPrev();if(e.key==='ArrowRight')pf.flipNext()});
@@ -296,7 +310,7 @@ if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(
 
 </main>
 
-<footer><div><b>Mar de Alcatrazes</b><br>Projeto de pesquisa · LABECMar, Laboratório de Ecologia e Conservação Marinha · UNIFESP</div><div>UNIFESP · Petrobras · FAP-UNIFESP · NGI-ICMBio Alcatrazes · CEBIMar-USP · UNESP<br>Fotos: Leo Francini</div></footer>
+<footer><div class="sponsors"><img src="images/logo-mar-de-alcatrazes.png" alt="Logo do Projeto Mar de Alcatrazes" width="56" height="56"><span class="vr" aria-hidden="true"></span><img src="images/logo-labecmar.png" alt="Logo do LABECMar, UNIFESP" width="69" height="56"></div><div><b>Mar de Alcatrazes</b><br>Projeto de pesquisa · LABECMar, Laboratório de Ecologia e Conservação Marinha · UNIFESP</div><div>UNIFESP · Petrobras · FAP-UNIFESP · NGI-ICMBio Alcatrazes · CEBIMar-USP · UNESP<br>Fotos: Leo Francini</div></footer>
 <script>
 (function(){var b=document.getElementById('filmPlay'),p=document.getElementById('filmPlayer');if(!b)return;
 b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://drive.google.com/file/d/1nOO0ocmCuNxRRJGazWXi-1mYCoTXLu7Z/preview';f.title='Documentário Mar de Alcatrazes';f.allow='autoplay; fullscreen; picture-in-picture';f.allowFullscreen=true;p.replaceChildren(f);f.focus()})})();
