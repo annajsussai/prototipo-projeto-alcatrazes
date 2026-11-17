@@ -1,36 +1,56 @@
 <!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0b2a3d"><title>Mar de Alcatrazes – Projeto de monitoramento marinho · LABECMar</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f6f4ee;--ink:#0d2233;--mute:#5b6b78;--line:#d9d6cc;--navy:#0b2a3d;--teal:#0f7c8a;--accent:#c2410c;--accent-text:#b53a0f;--focus:#0b5f6b;--card:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0a1722;--ink:#e8eef3;--mute:#9db0be;--line:#223645;--card:#0f2231;--teal:#5cc3d0;--accent-text:#ff9a78;--focus:#ffd0bf}}
-:root[data-theme="dark"]{--paper:#0a1722;--ink:#e8eef3;--mute:#9db0be;--line:#223645;--card:#0f2231;--teal:#5cc3d0;--accent-text:#ff9a78;--focus:#ffd0bf}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.7 Inter,system-ui,sans-serif}
+:root{--paper:#f6f4ee;--ink:#0d2233;--mute:#5b6b78;--line:#d9d6cc;--navy:#0b2a3d;--teal:#0f7c8a;--accent:#c2410c;--accent-text:#b53a0f;--focus:#0b5f6b;color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0a1722;--ink:#e8eef3;--mute:#9db0be;--line:#223645;--teal:#5cc3d0;--accent-text:#ff9a78;--focus:#ffd0bf}}
+:root[data-theme="dark"]{--paper:#0a1722;--ink:#e8eef3;--mute:#9db0be;--line:#223645;--teal:#5cc3d0;--accent-text:#ff9a78;--focus:#ffd0bf}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.7 Inter,system-ui,sans-serif}
 h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.01em}
 .wrap{max-width:1180px;margin:auto;padding:0 6vw}
-nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 6vw;color:#fff;background:linear-gradient(#06182a99,transparent)}
-.logo{font:600 22px Fraunces,serif;letter-spacing:.02em}nav div{display:flex;gap:28px}nav a{color:#fff;text-decoration:none;font-size:14px;opacity:.9}nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px}
-.hero{height:100vh;min-height:620px;display:flex;align-items:flex-end;color:#fff;padding:0 6vw 9vh;background:linear-gradient(0deg,#041623ee 0%,#04162355 45%,#04162322 100%),url(images/foto-01.jpg) center/cover}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-70px;z-index:60;background:#fff;color:#0b2a3d;padding:12px 18px;border-radius:4px;font-weight:600;text-decoration:none}.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:2px}
+nav,.hero,.proj,.film,.reader,footer,.line{--focus:#ffd0bf}
+main:focus{outline:none}
+
+/* ===== Barra de navegação com logos ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:calc(env(safe-area-inset-top,0px) + 14px) 5vw 14px;background:linear-gradient(#06182acc,#06182a00);transition:background .3s,box-shadow .3s,padding .3s}
+nav.solid{background:#0b2a3df5;box-shadow:0 6px 24px #0005;padding-top:calc(env(safe-area-inset-top,0px) + 8px);padding-bottom:8px}
+.brand{position:relative;z-index:2;display:inline-flex;align-items:center;gap:14px;background:#fff;border-radius:14px;padding:7px 16px;box-shadow:0 6px 22px #0003;text-decoration:none;flex:none}
+.brand img{height:44px;width:auto;display:block}
+.brand .vr{width:1px;align-self:stretch;margin:3px 0;background:#0b2a3d2e}
+.links{display:flex;align-items:center;gap:2px}
+.links a{color:#fff;text-decoration:none;font-size:14.5px;font-weight:500;padding:0 14px;min-height:44px;display:inline-flex;align-items:center;position:relative}
+.links a::after{content:"";position:absolute;left:14px;right:14px;bottom:8px;height:2px;background:#ffb599;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.links a:hover::after{transform:scaleX(1)}
+.burger{display:none}
+
+/* ===== Hero ===== */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:#fff;padding:140px 6vw 9vh;background:linear-gradient(0deg,#041623ee 0%,#04162355 45%,#04162333 100%),url(images/foto-01.jpg) center/cover}
 .hero h1{font-size:clamp(42px,7vw,92px);line-height:1.02;margin:0 0 18px;max-width:900px}
 .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-text);font-weight:600;margin-bottom:18px}.hero .eyebrow{color:#ffd0bf}
 .hero p{margin:0 0 32px;font-size:18px;opacity:.92;max-width:620px}
-.jump{display:flex;flex-wrap:wrap;gap:6px 34px;margin-top:36px;padding-top:18px;border-top:1px solid #ffffff55;max-width:520px}.jump a{color:#fff;text-decoration:none;font:500 17px Fraunces,serif;padding-bottom:4px;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}.jump a::after{content:" →";display:inline-block;transition:transform .2s}.jump a:hover{border-color:#ffb599;color:#ffd0bf}.jump a:hover::after{transform:translateX(4px)}
-.btn{display:inline-block;padding:14px 30px;background:var(--accent);color:#fff;text-decoration:none;font-weight:500;font-size:15px;border-radius:2px;margin:0 10px 10px 0}.btn.o{background:transparent;border:1px solid #fff9}.btn:hover{filter:brightness(1.1)}
+.jump{display:flex;flex-wrap:wrap;gap:6px 34px;margin-top:36px;padding-top:18px;border-top:1px solid #ffffff55;max-width:520px}
+.jump a{color:#fff;text-decoration:none;font:500 17px Fraunces,serif;min-height:44px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.jump a::after{content:" →";margin-left:6px;transition:transform .2s}.jump a:hover{border-color:#ffb599;color:#ffd0bf}.jump a:hover::after{transform:translateX(4px)}
+.btn{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:0 30px;background:var(--accent);color:#fff;text-decoration:none;font-weight:500;font-size:15px;border-radius:2px;margin:0 10px 10px 0}.btn.o{background:transparent;border:1px solid #fff9}.btn:hover{filter:brightness(1.1)}
+
 section{padding:110px 0}
 .sec{display:grid;grid-template-columns:200px 1fr;gap:40px}.sec>.eyebrow{margin-top:12px}
 h2{font-size:clamp(30px,4vw,48px);line-height:1.15;margin:0 0 28px}
 .about .cols{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:start}
-.about p.s{font-size:20px;line-height:1.65;font-family:Fraunces,serif;font-weight:400;margin:0 0 22px}
+.about p.s{font-size:20px;line-height:1.65;font-family:Fraunces,serif;margin:0 0 22px}
 .about img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:66% center;border-radius:2px}
 .lead{font-size:19px;color:var(--mute);max-width:780px;margin:0 0 44px}.lead b{color:var(--ink);font-weight:600}
 .txt p{margin:0 0 20px;max-width:760px;font-size:18px}.txt p.mu{color:var(--mute)}
-.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;border-top:1px solid var(--line)}
-.nums div{padding:26px 16px 10px 0;border-bottom:1px solid var(--line)}.nums b{display:block;font:500 clamp(34px,4vw,50px)/1.1 Fraunces,serif;color:var(--teal)}.nums span{font-size:14px;color:var(--mute)}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px;border-top:1px solid var(--line)}
+.nums div{padding:26px 16px 10px 0;border-bottom:1px solid var(--line)}.nums b{display:block;font:500 clamp(32px,4vw,50px)/1.1 Fraunces,serif;color:var(--teal)}.nums span{font-size:14px;color:var(--mute)}
 .lines{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .line{min-height:480px;color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center}
 .line .eyebrow{color:#ffd0bf;margin-bottom:12px}.line h3{font-size:clamp(26px,2.8vw,36px);line-height:1.15;margin:0 0 12px}
-.line p{margin:0 0 18px;font-size:15.5px;opacity:.95;max-width:520px;line-height:1.6}
+.line p{margin:0 0 18px;font-size:15.5px;max-width:520px;line-height:1.6}
 .chips span{display:inline-block;border:1px solid #fff8;padding:4px 14px;font-size:13px;margin:0 8px 8px 0;border-radius:30px}
-.note{max-width:780px;margin:44px 0 0;color:var(--mute)}
 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.strip img{width:100%;height:300px;object-fit:cover;display:block}
 .tools{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
 .tool{padding:24px 0;border-top:1px solid var(--line)}.tool h3{font-size:24px;margin:0 0 6px}.tool p{margin:0;color:var(--mute)}
@@ -38,151 +58,81 @@ h2{font-size:clamp(30px,4vw,48px);line-height:1.15;margin:0 0 28px}
 .row{display:grid;grid-template-columns:150px 1fr;padding:22px 0;border-bottom:1px solid #ffffff26;transition:padding .25s}.row:hover{padding-left:12px}
 .row i{font:500 20px Fraunces,serif;font-style:normal;color:#ffb599}.row span{font:400 21px/1.4 Fraunces,serif}
 .quote{margin:48px 0 0;font:italic 400 24px/1.45 Fraunces,serif;color:#cfe4ea;max-width:760px}.quote small{display:block;font:400 14px Inter,sans-serif;color:#8fd0d9;margin-top:8px}
-.book .cols{display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:start}
-.book p{margin:0 0 18px}.book .s{font:400 20px/1.65 Fraunces,serif}
+.rep .cols{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.rep .btn.o{color:var(--ink);border-color:var(--line)}.rep .acts{margin-top:28px}
+.a4{position:relative;aspect-ratio:210/297;width:100%;max-width:640px;margin:0 auto;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 24px 60px #0b2a3d33,0 0 0 1px var(--line)}
+.a4 iframe,.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .film{background:#06141f;color:#fff;padding:110px 0}.film h2{color:#fff}.film .eyebrow{color:#ffb599}.film .lead{color:#b4c6d2}
 .player{position:relative;aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden;box-shadow:0 30px 80px #000a,0 0 0 1px #ffffff1f}
-.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.alt{margin:18px 0 0;font-size:14px;color:#8fa6b5}.alt a{color:#8fd0d9;text-underline-offset:4px}
-.book .cols{display:block;margin:0 0 48px;max-width:860px;text-align:left}.book .cols .s{max-width:820px}
-.facts b{display:block;font:600 28px Fraunces,serif}.facts span{font-size:13px;color:var(--mute)}
-.reader{background:radial-gradient(ellipse at 50% 30%,#12384f 0%,#0a2233 60%,#071a29 100%);border-radius:6px;padding:48px 4vw 28px;color:#fff;box-shadow:0 24px 70px #0b2a3d55}
-.reader:fullscreen{border-radius:0;display:flex;flex-direction:column;justify-content:center}
-.flipwrap{width:100%;margin:0 auto;min-height:320px;display:flex;justify-content:center}
-#flip{width:min(100%,calc(2*(80vh - 90px)/var(--r,.9)));max-width:100%;margin:0 auto}
-@media(max-width:700px){#flip{width:min(100%,calc((80vh - 90px)/var(--r,.9)))}}
-#flip{filter:drop-shadow(0 18px 30px #0009)}
-.pg{background:#fff;overflow:hidden}.pg canvas{width:100%;height:100%;display:block}
-.pg.hard{background:#0b2a3d}
-.ctrl{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:30px;flex-wrap:wrap}
-.ctrl button,.ctrl a{font:500 14px Inter,sans-serif;color:#fff;background:#ffffff14;border:1px solid #ffffff40;padding:10px 20px;border-radius:30px;cursor:pointer;text-decoration:none}
-.ctrl button:hover,.ctrl a:hover{background:#ffffff26}
-.ctrl .cnt{min-width:84px;text-align:center;font-size:14px;color:#b4c6d2}
-.loadmsg{align-self:center;color:#b4c6d2;font-size:15px}
-.bookfb .player{aspect-ratio:1.18/1;height:auto;max-height:80vh;margin:0 auto;width:min(100%,calc(80vh*1.18))}
-.bookfb .player iframe{inset:auto;left:-7%;top:-5%;width:114%;height:118%}
-.hint{text-align:center;margin:18px 0 0;font-size:13px;color:#8fa6b5}
-@media(max-width:860px){.film{padding:76px 0}.reader{padding:28px 3vw 20px}}
-footer{background:#071a29;color:#9db0be;padding:44px 6vw;font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}footer b{font:600 20px Fraunces,serif;color:#fff}
-@media(max-width:860px){section{padding:76px 0}.sec,.about .cols,.book .cols,.lines,.tools{grid-template-columns:1fr}.sec{gap:0}.strip{grid-template-columns:1fr 1fr}.strip img{height:200px}.line{min-height:400px;padding:28px}.nums{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}.logo{font-size:17px}nav div{gap:13px}nav a{font-size:12.5px}}
-@media(max-width:520px){nav{flex-direction:column;align-items:flex-start;gap:6px;padding:14px 6vw}nav div{gap:12px;flex-wrap:wrap}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.row{transition:none}}
-
+.alt{margin:18px 0 0;font-size:14px;color:#8fa6b5}
 .facade{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:#000 url(images/foto-03.jpg) center/cover;display:flex;align-items:center;justify-content:center;color:#fff}
 .facade::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#041623cc,#04162366)}
 .facade span{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;font:500 17px Fraunces,serif}
 .facade i{width:78px;height:78px;border-radius:50%;background:var(--accent);display:grid;place-items:center;transition:transform .2s}
-.facade i::after{content:"";margin-left:6px;border-left:24px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent}
-.facade:hover i{transform:scale(1.08)}
-.rep .cols{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
-.rep p.s{font:400 20px/1.65 Fraunces,serif;margin:0 0 18px}
-.rep .acts{margin-top:28px}.rep .btn.o{color:var(--ink);border-color:var(--line)}
-.a4{position:relative;aspect-ratio:210/297;width:100%;max-width:640px;margin:0 auto;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 24px 60px #0b2a3d33,0 0 0 1px var(--line)}
-.a4 iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-@media(max-width:860px){.rep .cols{grid-template-columns:1fr;gap:36px}}
+.facade i::after{content:"";margin-left:6px;border-left:24px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent}.facade:hover i{transform:scale(1.08)}
+.book .cols{margin:0 0 48px;max-width:860px}.book p{margin:0 0 18px}.book .s{font:400 20px/1.65 Fraunces,serif}
+.reader{background:radial-gradient(ellipse at 50% 30%,#12384f 0%,#0a2233 60%,#071a29 100%);border-radius:6px;padding:48px 4vw 28px;color:#fff;box-shadow:0 24px 70px #0b2a3d55}
+.reader:fullscreen{border-radius:0;display:flex;flex-direction:column;justify-content:center}
+.flipwrap{width:100%;margin:0 auto;min-height:320px;display:flex;justify-content:center}
+#flip{width:min(100%,calc(2*(80vh - 90px)/var(--r,.9)));max-width:100%;margin:0 auto;filter:drop-shadow(0 18px 30px #0009)}
+.pg{background:#fff;overflow:hidden}.pg canvas{width:100%;height:100%;display:block}.pg.hard{background:#0b2a3d}
+.ctrl{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:30px;flex-wrap:wrap}
+.ctrl button,.ctrl a{font:500 14px Inter,sans-serif;color:#fff;background:#ffffff14;border:1px solid #ffffff40;padding:0 20px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:30px;cursor:pointer;text-decoration:none}
+.ctrl button:hover,.ctrl a:hover{background:#ffffff26}
+.ctrl .cnt{min-width:84px;text-align:center;font-size:14px;color:#b4c6d2}
+.loadmsg{align-self:center;color:#b4c6d2;font-size:15px}
+.bookfb .player{aspect-ratio:1.18/1;max-height:80vh;margin:0 auto;width:min(100%,calc(80vh*1.18))}
+.bookfb .player iframe{inset:auto;left:-7%;top:-5%;width:114%;height:118%}
+.hint{text-align:center;margin:18px 0 0;font-size:13px;color:#8fa6b5}
 
-/* ===== Acessibilidade e mobile ===== */
-html{-webkit-text-size-adjust:100%}
-.skip{position:fixed;left:12px;top:-60px;z-index:50;background:#fff;color:#0b2a3d;padding:12px 18px;border-radius:4px;font-weight:600;text-decoration:none;transition:top .15s}.skip:focus{top:calc(env(safe-area-inset-top,0px) + 12px)}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:2px}
-nav,.hero,.proj,.film,.reader,footer,.line{--focus:#ffd0bf}
-main:focus{outline:none}
-nav .links{align-items:center}
-.btn,.ctrl button,.ctrl a,.jump a,nav .links a{min-height:44px;display:inline-flex;align-items:center}
-.btn{justify-content:center}
-.ctrl .cnt{display:inline-block}
-.nums div:last-child:nth-child(odd){grid-column:1/-1}
+/* ===== Rodapé ===== */
+footer{background:#071a29;color:#9db0be;padding:48px 6vw;font-size:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+footer b{font:600 20px Fraunces,serif;color:#fff}
+footer .brand{box-shadow:none}footer .brand img{height:50px}
+
+/* ===== Celular ===== */
 @media(max-width:860px){
-html{scroll-padding-top:16px}
-nav{position:absolute;padding:12px 5vw 6px;background:linear-gradient(#06182aee,#06182a00);gap:2px}
-nav .links{width:100%;gap:4px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -5vw;padding:0 5vw;mask-image:linear-gradient(90deg,#000 88%,transparent)}
-nav .links::-webkit-scrollbar{display:none}
-nav .links a{font-size:15px;opacity:1;padding:0 12px;flex:none}
-.logo{font-size:19px}
-.hero{height:auto;min-height:100svh;padding:150px 6vw 7vh;background:linear-gradient(0deg,#041623f2 0%,#041623aa 55%,#04162344 100%),url(images/foto-01.jpg) 60% center/cover}
-.hero p{font-size:17px}
-.jump{gap:0 8px;max-width:none}.jump a{font-size:17px;padding:0 4px}
-.btn{width:100%;margin:0 0 10px}
-.rep .acts{display:grid;gap:0}
-.about p.s,.book .s,.rep p.s{font-size:18px;line-height:1.6}
-.txt p{font-size:17px}.lead{font-size:17px;margin-bottom:32px}
-h2{margin-bottom:20px}
-.about img{aspect-ratio:4/3}
+section{padding:76px 0}.film{padding:64px 0}
+.sec,.about .cols,.rep .cols,.lines,.tools{grid-template-columns:1fr}.sec{gap:0}.rep .cols{gap:36px}
 .sec>.eyebrow{margin:0 0 10px}
-.nums b{font-size:32px}.nums span{font-size:14px}
-.chips span{font-size:14px;padding:6px 14px}
-.tool{padding:20px 0}
-.row{padding:18px 0}.row span{font-size:19px}
-.quote{font-size:20px}
-.strip img{height:180px}
-.a4{max-width:100%}
-.film{padding:64px 0}
+.strip{grid-template-columns:1fr 1fr}.strip img{height:190px}
+.line{min-height:400px;padding:28px}
+.nums{grid-template-columns:1fr 1fr}.nums div:last-child:nth-child(odd){grid-column:1/-1}
+.row{grid-template-columns:1fr;padding:18px 0}.row span{font-size:19px}
+.about p.s,.book .s{font-size:18px;line-height:1.6}.txt p,.lead{font-size:17px}
+.about img{aspect-ratio:4/3}.quote{font-size:20px}.a4{max-width:100%}
+.btn{width:100%;margin:0 0 10px}
+.reader{padding:28px 3vw 20px;border-radius:4px}
+.ctrl{gap:10px;margin-top:22px}.ctrl #prev,.ctrl #next{flex:1 1 40%}.ctrl .cnt{order:-1;flex:1 0 100%}
 .facade i{width:68px;height:68px}
-.reader{border-radius:4px}
-.ctrl{gap:10px;margin-top:22px}
-.ctrl button,.ctrl a{padding:0 18px;justify-content:center}
-.ctrl #prev,.ctrl #next{flex:1 1 40%}
-.ctrl .cnt{order:-1;flex:1 0 100%;text-align:center}
-.hint,.alt{font-size:14px;line-height:1.55}
-footer{padding:36px 6vw;flex-direction:column}
-}
-@media(max-width:520px){
-nav{flex-direction:column;align-items:flex-start;gap:2px;padding:12px 5vw 6px}
-.hero h1{font-size:clamp(40px,13vw,56px)}
-.strip{grid-template-columns:1fr 1fr}
-.line{min-height:360px;padding:24px 20px}
-.nums{grid-template-columns:1fr 1fr}
-}
-@media(max-width:400px){.ctrl #fs{flex:1 1 100%}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
-@media(forced-colors:active){.btn,.ctrl button,.ctrl a{border:1px solid ButtonText}}
-
-/* ===== Menu hambúrguer (celular) ===== */
-.burger{display:none}
-@media(max-width:860px){
-nav,nav.x{flex-direction:row;align-items:center;justify-content:space-between;padding:14px 5vw 6px}
-.burger{display:inline-flex;position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:4vw;z-index:30;width:48px;height:48px;padding:0;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#0b2a3df2;border:1px solid #ffffff59;border-radius:50%;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 4px 16px #0006}
+footer{flex-direction:column;align-items:flex-start}
+/* barra e menu */
+nav{padding:calc(env(safe-area-inset-top,0px) + 10px) 4vw 10px}
+.brand{padding:6px 12px;gap:10px;border-radius:12px}.brand img{height:34px}
+.burger{position:relative;z-index:2;display:inline-flex;flex:none;width:48px;height:48px;padding:0;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#0b2a3df2;border:1px solid #ffffff66;border-radius:50%;cursor:pointer}
 .burger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s}
 .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-nav .links{position:fixed;inset:0;z-index:25;width:auto;margin:0;flex-direction:column;align-items:stretch;justify-content:center;gap:0;padding:88px 8vw 40px;overflow:auto;white-space:normal;background:#071a29f7;-webkit-mask-image:none;mask-image:none;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
-nav .links.open{opacity:1;visibility:visible}
-nav .links a{font:500 26px Fraunces,serif;min-height:58px;padding:0;border-bottom:1px solid #ffffff22;flex:none}
-}
-
-/* ===== Logos e hero no celular ===== */
-.sponsors{display:inline-flex;align-items:center;gap:16px;background:#fffffff2;border-radius:18px;padding:10px 18px;margin:0 0 28px;box-shadow:0 10px 30px #0005}
-.sponsors img{height:70px;width:auto;display:block}
-.sponsors .vr{width:1px;align-self:stretch;background:#0b2a3d26}
-footer .sponsors{margin:0;align-self:flex-start}footer .sponsors img{height:56px}
-@media(max-width:860px){
-.sponsors{padding:8px 14px;gap:12px;margin-bottom:22px;border-radius:16px}
-.sponsors img{height:58px}
-footer .sponsors img{height:52px}
-.hero .eyebrow{font-size:11.5px;letter-spacing:.16em;line-height:1.7;margin-bottom:14px}
-.hero .eyebrow span{display:block}.hero .eyebrow .dot{display:none}
-.hero h1{margin-bottom:14px}
+.links{position:fixed;inset:0;z-index:1;flex-direction:column;align-items:stretch;justify-content:safe center;gap:0;padding:96px 8vw 40px;overflow:auto;background:#071a29fa;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+.links.open{opacity:1;visibility:visible}
+.links a{font:500 26px Fraunces,serif;min-height:60px;padding:0;border-bottom:1px solid #ffffff22}.links a::after{display:none}
+/* hero */
+.hero{padding:130px 6vw 7vh;background:linear-gradient(0deg,#041623f2 0%,#041623aa 55%,#04162344 100%),url(images/foto-01.jpg) 60% center/cover}
+.hero h1{font-size:clamp(40px,13vw,60px);margin-bottom:14px}
+.hero .eyebrow{font-size:11.5px;letter-spacing:.16em;line-height:1.7}.hero .eyebrow span{display:block}.hero .eyebrow .dot{display:none}
 .hero p{font-size:16.5px;line-height:1.6;margin-bottom:6px}
-.jump{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;padding-top:0;border-top:0}
-.jump a{justify-content:center;min-height:50px;padding:0 12px;font-size:16px;border:1px solid #ffffff4d;border-radius:999px;background:#ffffff14;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.jump a::after{margin-left:6px}
-.jump a:hover{border-color:#ffb599}
+.jump{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;padding-top:0;border-top:0;max-width:none}
+.jump a{justify-content:center;min-height:50px;padding:0 12px;font-size:16px;border:1px solid #ffffff4d;border-radius:999px;background:#ffffff14}
 }
-
-/* ===== Logos dentro do menu hambúrguer ===== */
-nav .links .menu-logos{display:none}
-@media(max-width:860px){
-.hero .sponsors{display:none}
-nav .links{justify-content:safe center}
-nav .links .menu-logos{display:inline-flex;align-self:flex-start;margin:0 0 20px;flex:none}
-}
+@media(max-width:400px){.brand img{height:30px}.brand{padding:5px 10px;gap:8px}.ctrl #fs{flex:1 1 100%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@media(forced-colors:active){.btn,.ctrl button,.ctrl a{border:1px solid ButtonText}}
 </style></head><body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<nav aria-label="Principal"><div class="logo">Mar de Alcatrazes</div><div class="links" id="menu"><div class="sponsors menu-logos"><img src="images/logo-mar-de-alcatrazes.png" alt="Logo do Projeto Mar de Alcatrazes" width="58" height="58"><span class="vr" aria-hidden="true"></span><img src="images/logo-labecmar.png" alt="Logo do LABECMar, UNIFESP" width="72" height="58"></div><a href="#sobre">Sobre</a><a href="#arquipelago">Arquipélago</a><a href="#pesquisa">Pesquisa</a><a href="#historia">História</a><a href="#reportagem">Reportagem</a><a href="#filme">Filme</a><a href="#livro">Livro</a></div><button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button></nav>
+<nav id="nav" aria-label="Principal"><a class="brand" href="#" aria-label="Mar de Alcatrazes, início"><img src="images/logo-mar-de-alcatrazes.png" alt="Logo do Projeto Mar de Alcatrazes" width="44" height="44"><span class="vr" aria-hidden="true"></span><img src="images/logo-labecmar.png" alt="Logo do LABECMar, UNIFESP" width="54" height="44"></a><div class="links" id="menu"><a href="#sobre">Sobre</a><a href="#arquipelago">Arquipélago</a><a href="#pesquisa">Pesquisa</a><a href="#historia">História</a><a href="#reportagem">Reportagem</a><a href="#filme">Filme</a><a href="#livro">Livro</a></div><button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button></nav>
 
-<header class="hero"><div><div class="sponsors"><img src="images/logo-mar-de-alcatrazes.png" alt="Logo do Projeto Mar de Alcatrazes" width="70" height="70"><span class="vr" aria-hidden="true"></span><img src="images/logo-labecmar.png" alt="Logo do LABECMar, UNIFESP" width="87" height="70"></div><div class="eyebrow"><span>Projeto 2021–2025</span><span class="dot"> · </span><span>LABECMar · UNIFESP</span></div><h1>Mar de Alcatrazes</h1><p>Monitoramento de invertebrados, peixes e fatores abióticos no ambiente marinho do Arquipélago dos Alcatrazes, litoral norte de São Paulo.</p><div class="jump" role="navigation" aria-label="Atalhos"><a href="#sobre">O projeto</a><a href="#reportagem">A reportagem</a><a href="#filme">O filme</a><a href="#livro">O livro</a></div></div></header>
+<header class="hero"><div><div class="eyebrow"><span>Projeto 2021–2025</span><span class="dot"> · </span><span>LABECMar · UNIFESP</span></div><h1>Mar de Alcatrazes</h1><p>Monitoramento de invertebrados, peixes e fatores abióticos no ambiente marinho do Arquipélago dos Alcatrazes, litoral norte de São Paulo.</p><div class="jump" role="navigation" aria-label="Atalhos"><a href="#sobre">O projeto</a><a href="#reportagem">A reportagem</a><a href="#filme">O filme</a><a href="#livro">O livro</a></div></div></header>
 
 <main id="conteudo" tabindex="-1">
 
@@ -255,8 +205,7 @@ nav .links .menu-logos{display:inline-flex;align-self:flex-start;margin:0 0 20px
 <h2 id="t-livro">O livro</h2>
 <p class="s">“Mar de Alcatrazes: monitoramento de invertebrados, peixes e fatores abióticos no ambiente marinho do Arquipélago dos Alcatrazes, litoral norte do Estado de São Paulo” reúne os resultados e os bastidores de cinco anos de pesquisa.</p>
 <p style="color:var(--mute)">Com linguagem acessível, depoimentos de campo e rica documentação fotográfica, aborda aves e mamíferos marinhos, peixes, vida bentônica e o controle de espécies exóticas. Leitura para estudantes, educadores e apoiadores da conservação dos oceanos.</p>
-<p style="color:var(--mute)">Organização: Jéssica P. Boelter, Ana Clara S. Athayde e Fábio S. Motta.</p></div>
-</div>
+<p style="color:var(--mute)">Organização: Jéssica P. Boelter, Ana Clara S. Athayde e Fábio S. Motta.</p></div></div>
 
 <div class="reader" id="reader" role="region" aria-label="Leitor do livro">
 <div id="bookui">
@@ -270,6 +219,11 @@ nav .links .menu-logos{display:inline-flex;align-self:flex-start;margin:0 0 20px
 </div>
 </div>
 </div></section>
+
+<div class="strip"><img loading="lazy" decoding="async" src="images/foto-19.jpg" alt="Peixe espiando entre corais"><img loading="lazy" decoding="async" src="images/foto-20.jpg" alt="Anêmona vermelha sobre alga calcária"><img loading="lazy" decoding="async" src="images/foto-21.jpg" alt="Molusco bivalve, com os olhos à mostra"><img loading="lazy" decoding="async" src="images/foto-22.jpg" alt="Embarcação de apoio junto aos paredões da ilha"></div>
+</main>
+
+<footer><div class="brand"><img src="images/logo-mar-de-alcatrazes.png" alt="Logo do Projeto Mar de Alcatrazes" width="50" height="50"><span class="vr" aria-hidden="true"></span><img src="images/logo-labecmar.png" alt="Logo do LABECMar, UNIFESP" width="62" height="50"></div><div><b>Mar de Alcatrazes</b><br>Projeto de pesquisa · LABECMar, Laboratório de Ecologia e Conservação Marinha · UNIFESP</div><div>UNIFESP · Petrobras · FAP-UNIFESP · NGI-ICMBio Alcatrazes · CEBIMar-USP · UNESP<br>Fotos: Leo Francini</div></footer>
 
 <script>
 (function(){
@@ -304,23 +258,14 @@ document.getElementById('fs').onclick=function(){if(document.fullscreenElement)d
 }
 if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(es[0].isIntersecting){o.disconnect();init()}},{rootMargin:'600px'}).observe(reader)}else init();
 })();
-</script>
-
-<div class="strip"><img loading="lazy" decoding="async" src="images/foto-19.jpg" alt="Peixe espiando entre corais"><img loading="lazy" decoding="async" src="images/foto-20.jpg" alt="Anêmona vermelha sobre alga calcária"><img loading="lazy" decoding="async" src="images/foto-21.jpg" alt="Molusco bivalve, com os olhos à mostra"><img loading="lazy" decoding="async" src="images/foto-22.jpg" alt="Embarcação de apoio junto aos paredões da ilha"></div>
-
-</main>
-
-<footer><div class="sponsors"><img src="images/logo-mar-de-alcatrazes.png" alt="Logo do Projeto Mar de Alcatrazes" width="56" height="56"><span class="vr" aria-hidden="true"></span><img src="images/logo-labecmar.png" alt="Logo do LABECMar, UNIFESP" width="69" height="56"></div><div><b>Mar de Alcatrazes</b><br>Projeto de pesquisa · LABECMar, Laboratório de Ecologia e Conservação Marinha · UNIFESP</div><div>UNIFESP · Petrobras · FAP-UNIFESP · NGI-ICMBio Alcatrazes · CEBIMar-USP · UNESP<br>Fotos: Leo Francini</div></footer>
-<script>
 (function(){var b=document.getElementById('filmPlay'),p=document.getElementById('filmPlayer');if(!b)return;
 b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://drive.google.com/file/d/1nOO0ocmCuNxRRJGazWXi-1mYCoTXLu7Z/preview';f.title='Documentário Mar de Alcatrazes';f.allow='autoplay; fullscreen; picture-in-picture';f.allowFullscreen=true;p.replaceChildren(f);f.focus()})})();
-</script>
-<script>
-(function(){var b=document.getElementById('burger'),m=document.getElementById('menu');if(!b||!m)return;
+(function(){var b=document.getElementById('burger'),m=document.getElementById('menu'),nav=document.getElementById('nav');
 function set(o){b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');m.classList.toggle('open',o);document.documentElement.style.overflow=o?'hidden':''}
 b.addEventListener('click',function(){set(b.getAttribute('aria-expanded')!=='true')});
 m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
-var mq=matchMedia('(min-width:861px)');(mq.addEventListener?mq.addEventListener('change',function(e){if(e.matches)set(false)}):0)})();
+var mq=matchMedia('(min-width:861px)');if(mq.addEventListener)mq.addEventListener('change',function(e){if(e.matches)set(false)});
+function sc(){nav.classList.toggle('solid',scrollY>40)}addEventListener('scroll',sc,{passive:true});sc()})();
 </script>
 </body></html>
