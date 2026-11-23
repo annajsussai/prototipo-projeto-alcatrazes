@@ -171,3 +171,33 @@
       if (e.matches) set(false);
     });
 })();
+
+/* ===== 4. Textos aparecem ao rolar a página ===== */
+(function () {
+  if (!("IntersectionObserver" in window)) return;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var sel = "main .eyebrow, main h2, main h3, main p, main .lead, main .quote, main .acts";
+  var els = Array.prototype.filter.call(document.querySelectorAll(sel), function (el) {
+    return !el.closest("#reader, .player, .bookfb, .film .player");
+  });
+  var io = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -4% 0px" },
+  );
+  els.forEach(function (el) {
+    /* escalonamento: irmãos entram um depois do outro */
+    var sibs = Array.prototype.filter.call(el.parentNode.children, function (c) {
+      return els.indexOf(c) > -1;
+    });
+    el.style.setProperty("--d", Math.min(sibs.indexOf(el) * 0.06, 0.24) + "s");
+    el.classList.add("rv");
+    io.observe(el);
+  });
+})();
