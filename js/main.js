@@ -130,16 +130,16 @@
     ).observe(reader);
   } else init();
 })();
-/* ===== 2. Filme: só carrega o vídeo (Bunny Stream) ao clicar ===== */
+/* ===== 2. Filme: só carrega o vídeo (YouTube) ao clicar ===== */
 (function () {
   var b = document.getElementById("filmPlay"),
     p = document.getElementById("filmPlayer");
   if (!b) return;
   b.addEventListener("click", function () {
     var f = document.createElement("iframe");
-    f.src = "https://player.mediadelivery.net/embed/818497/34ddc183-68b2-4f76-a110-600f718e801e?autoplay=true&preload=true&responsive=true";
+    f.src = "https://www.youtube-nocookie.com/embed/5XL7UI75CoI?autoplay=1&rel=0";
     f.title = "Documentário Mar de Alcatrazes";
-    f.allow = "accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";
     f.allowFullscreen = true;
     p.replaceChildren(f);
     f.focus();
